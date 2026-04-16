@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  transpilePackages: ["@quran/core", "@quran/data", "@quran/i18n"],
 };
 
 export default nextConfig;
