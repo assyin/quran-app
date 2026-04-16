@@ -1,0 +1,27 @@
+* text=auto eol=lf
+
+*.md    text
+*.mdx   text
+*.js    text
+*.ts    text
+*.tsx   text
+*.json  text
+*.yaml  text
+*.yml   text
+*.css   text
+*.html  text
+
+*.json  diff=json
+
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.otf   binary
+*.mp3   binary
+*.ogg   binary
+*.webm  binary
