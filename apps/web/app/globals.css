@@ -10,3 +10,8 @@
 body {
   @apply bg-white text-gray-900 dark:bg-gray-900 dark:text-white;
 }
+
+.font-quran {
+  font-family: var(--font-quran), "Amiri Quran", "Scheherazade New", serif;
+  font-feature-settings: normal;
+}

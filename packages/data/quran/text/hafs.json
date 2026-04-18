@@ -1,0 +1,60 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "source": "tanzil.net",
+    "sourceVersion": "Hafs, rasm uthmani, Unicode",
+    "downloadedAt": "2026-04-18",
+    "verifiedBy": "manual-review"
+  },
+  "verses": [
+    {
+      "id": "1:1",
+      "surahNumber": 1,
+      "verseNumber": 1,
+      "text": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ",
+      "meta": { "juz": 1, "hizb": 1, "page": 1, "ruku": 1, "sajda": false }
+    },
+    {
+      "id": "1:2",
+      "surahNumber": 1,
+      "verseNumber": 2,
+      "text": "ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ",
+      "meta": { "juz": 1, "hizb": 1, "page": 1, "ruku": 1, "sajda": false }
+    },
+    {
+      "id": "1:3",
+      "surahNumber": 1,
+      "verseNumber": 3,
+      "text": "ٱلرَّحْمَٰنِ ٱلرَّحِيمِ",
+      "meta": { "juz": 1, "hizb": 1, "page": 1, "ruku": 1, "sajda": false }
+    },
+    {
+      "id": "1:4",
+      "surahNumber": 1,
+      "verseNumber": 4,
+      "text": "مَٰلِكِ يَوْمِ ٱلدِّينِ",
+      "meta": { "juz": 1, "hizb": 1, "page": 1, "ruku": 1, "sajda": false }
+    },
+    {
+      "id": "1:5",
+      "surahNumber": 1,
+      "verseNumber": 5,
+      "text": "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ",
+      "meta": { "juz": 1, "hizb": 1, "page": 1, "ruku": 1, "sajda": false }
+    },
+    {
+      "id": "1:6",
+      "surahNumber": 1,
+      "verseNumber": 6,
+      "text": "ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ",
+      "meta": { "juz": 1, "hizb": 1, "page": 1, "ruku": 1, "sajda": false }
+    },
+    {
+      "id": "1:7",
+      "surahNumber": 1,
+      "verseNumber": 7,
+      "text": "صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّينَ",
+      "meta": { "juz": 1, "hizb": 1, "page": 1, "ruku": 1, "sajda": false }
+    }
+  ]
+}

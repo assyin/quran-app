@@ -1,0 +1,24 @@
+[
+  {
+    "_meta": {
+      "version": "1.0.0",
+      "source": "tanzil.net",
+      "downloadedAt": "2026-04-18"
+    },
+    "number": 1,
+    "slug": "al-fatiha",
+    "nameArabic": "الفاتحة",
+    "nameTransliterated": "Al-Fatiha",
+    "nameTranslations": {
+      "fr": "L'Ouverture",
+      "en": "The Opening"
+    },
+    "revelationType": "meccan",
+    "verseCount": 7,
+    "position": {
+      "juz": [1],
+      "hizb": [1],
+      "page": [1]
+    }
+  }
+]

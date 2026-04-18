@@ -1,0 +1,23 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "downloadedAt": "2026-04-18"
+  },
+  "translators": [
+    {
+      "id": "hamidullah",
+      "nameEn": "Muhammad Hamidullah",
+      "nameNative": "Muhammad Hamidullah",
+      "language": "fr",
+      "year": 1959,
+      "source": "https://tanzil.net/trans/fr.hamidullah"
+    },
+    {
+      "id": "sahih-international",
+      "nameEn": "Sahih International",
+      "language": "en",
+      "year": 1997,
+      "source": "https://tanzil.net/trans/en.sahih"
+    }
+  ]
+}

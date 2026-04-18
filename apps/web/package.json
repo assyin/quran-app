@@ -10,6 +10,8 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@quran/core": "workspace:*",
+    "@quran/data": "workspace:*",
     "@quran/i18n": "workspace:*",
     "next": "16.2.4",
     "next-intl": "^4.9.1",

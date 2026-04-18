@@ -10,6 +10,9 @@
     "lint": "eslint .",
     "type-check": "tsc --noEmit"
   },
+  "dependencies": {
+    "@quran/core": "workspace:*"
+  },
   "devDependencies": {
     "@quran/config": "workspace:*",
     "typescript": "^5"

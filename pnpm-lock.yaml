@@ -14,6 +14,12 @@ importers:
 
   apps/web:
     dependencies:
+      '@quran/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@quran/data':
+        specifier: workspace:*
+        version: link:../../packages/data
       '@quran/i18n':
         specifier: workspace:*
         version: link:../../packages/i18n
@@ -70,6 +76,10 @@ importers:
         version: 5.9.3
 
   packages/data:
+    dependencies:
+      '@quran/core':
+        specifier: workspace:*
+        version: link:../core
     devDependencies:
       '@quran/config':
         specifier: workspace:*

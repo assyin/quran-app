@@ -6,20 +6,24 @@ import { routing } from "./routing";
 type MessageBundle = {
   common: Record<string, unknown>;
   home: Record<string, unknown>;
+  surah: Record<string, unknown>;
 };
 
 const loaders: Record<Locale, () => Promise<MessageBundle>> = {
   ar: async () => ({
     common: (await import("@quran/i18n/locales/ar/common.json")).default,
     home: (await import("@quran/i18n/locales/ar/home.json")).default,
+    surah: (await import("@quran/i18n/locales/ar/surah.json")).default,
   }),
   fr: async () => ({
     common: (await import("@quran/i18n/locales/fr/common.json")).default,
     home: (await import("@quran/i18n/locales/fr/home.json")).default,
+    surah: (await import("@quran/i18n/locales/fr/surah.json")).default,
   }),
   en: async () => ({
     common: (await import("@quran/i18n/locales/en/common.json")).default,
     home: (await import("@quran/i18n/locales/en/home.json")).default,
+    surah: (await import("@quran/i18n/locales/en/surah.json")).default,
   }),
 };
 
@@ -29,13 +33,14 @@ export default getRequestConfig(async ({ requestLocale }) => {
     ? requested
     : routing.defaultLocale;
 
-  const { common, home } = await loaders[locale]();
+  const { common, home, surah } = await loaders[locale]();
 
   return {
     locale,
     messages: {
       ...common,
       home,
+      surah,
     },
   };
 });

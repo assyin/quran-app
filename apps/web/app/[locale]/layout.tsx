@@ -5,6 +5,7 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { isRtlLocale, type Locale } from "@quran/i18n";
 import { routing } from "../../i18n/routing";
 import { Header } from "../../components/Header";
+import { quranFont } from "../fonts/quran-font";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -54,7 +55,7 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       dir={isRtl ? "rtl" : "ltr"}
-      className={`dark ${geistSans.variable} ${geistMono.variable} ${notoNaskhArabic.variable} h-full antialiased`}
+      className={`dark ${geistSans.variable} ${geistMono.variable} ${notoNaskhArabic.variable} ${quranFont.variable} h-full antialiased`}
     >
       <body className={`min-h-full flex flex-col ${bodyFontClass}`}>
         <NextIntlClientProvider>
