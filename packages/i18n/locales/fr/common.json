@@ -1,0 +1,22 @@
+{
+  "brand": {
+    "name": "Application Coran"
+  },
+  "nav": {
+    "home": "Accueil",
+    "quran": "Coran",
+    "hadith": "Hadith",
+    "search": "Recherche",
+    "settings": "Paramètres"
+  },
+  "language": {
+    "label": "Langue",
+    "ar": "Arabe",
+    "fr": "Français",
+    "en": "Anglais"
+  },
+  "theme": {
+    "dark": "Mode sombre",
+    "light": "Mode clair"
+  }
+}

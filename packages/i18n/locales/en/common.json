@@ -1,0 +1,22 @@
+{
+  "brand": {
+    "name": "Quran App"
+  },
+  "nav": {
+    "home": "Home",
+    "quran": "Quran",
+    "hadith": "Hadith",
+    "search": "Search",
+    "settings": "Settings"
+  },
+  "language": {
+    "label": "Language",
+    "ar": "Arabic",
+    "fr": "French",
+    "en": "English"
+  },
+  "theme": {
+    "dark": "Dark mode",
+    "light": "Light mode"
+  }
+}

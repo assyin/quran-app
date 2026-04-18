@@ -25,11 +25,17 @@ yarn-error.log*
 # OS
 .DS_Store
 Thumbs.db
+desktop.ini
 
 # Editors
 .vscode/
 .idea/
 *.swp
+*.swo
+*~
+
+# Claude Code local settings
+.claude/
 
 # TypeScript incremental
 *.tsbuildinfo
