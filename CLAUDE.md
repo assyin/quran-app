@@ -80,11 +80,15 @@ Seul le **contenu affiché** diffère selon la locale, jamais la structure de l'
 ### Polices typographiques
 
 **Pour le texte coranique (priorité absolue) :**
-- **Priorité 1 : KFGQPC Uthmanic Hafs** — police officielle du Complexe du Roi Fahd, rendu authentique du Mushaf de Médine
+- **Priorité 1 : KFGQPC Uthmanic Hafs V20** (fichier upstream `uthmanic_hafs_v20.ttf` depuis `nuqayah/qpc-fonts @ mushaf-v4-hafs/`, converti en WOFF2 localement via `ttf2woff2` — repackage sfnt lossless, aucune modification de glyphe). Rendu authentique du Mushaf de Médine, avec support des caractères Quranic Unicode 9.0+ (open tanwin U+08F0-F2, marqueurs waqf, iqlab, etc.).
 - Priorité 2 : **Amiri Quran** (licence SIL Open Font — alternative entièrement libre si jamais des questions de licence se posent sur KFGQPC en distribution open-source)
 - Fallback : **Scheherazade New**
 
+**Historique de décision** : la version initialement intégrée (UthmanicHafs Ver09, ~2014) pré-datait l'ajout Unicode 9.0 des open-tanwin en 2016, d'où des gaps visibles sur les mots avec U+08F0 + alef silencieux. Upgrade vers V20 appliqué le 2026-04-18. `UthmanicHafs1-Ver09.woff2` et `UthmanTN1-Ver10.woff2` sont conservés sur disque pour rollback 1-ligne dans `apps/web/app/fonts/quran-font.ts`. Voir `apps/web/public/fonts/quran/README.md` pour le détail.
+
 **Note juridique** : la licence de distribution de KFGQPC Uthmanic Hafs dans un projet open-source n'est pas parfaitement claire. Usage pragmatique pour l'instant, mais Amiri Quran reste un plan B 100% licite prêt à être substitué si besoin. À revoir si une clarification juridique est obtenue.
+
+**Point ouvert** : quelques open-tanwin (particulièrement U+08F1/F2 en position word-final) présentent encore des résidus visuels subtils avec V20. Option d'amélioration future : charger Amiri Quran en parallèle en fallback effectif pour les caractères non couverts (option "B3" non encore implémentée).
 
 **Pour l'arabe d'interface (menus, hadiths hors Coran) :**
 - **Noto Naskh Arabic** (équilibre lisibilité + rendu propre)
@@ -542,7 +546,36 @@ Tout bug affectant le contenu religieux est **prioritaire** sur tous les autres.
 
 ### Règle 7 — Versioning et traçabilité
 
-Chaque fichier de données porte un `_meta` avec version, source, date, vérification.
+Chaque fichier de données porte un `_meta` avec version, source, date, vérification. Tout traitement post-import (nettoyage typographique, normalisation de whitespace, etc.) est listé dans `_meta.postProcessing` pour transparence et reproductibilité.
+
+### Règle 8 — Conventions Unicode du rasm uthmani
+
+Le rasm uthmani moderne (King Fahd Complex, Unicode 9.0+) utilise plusieurs code points qui coexistent avec des formes plus anciennes. Ne jamais "normaliser" sous prétexte de simplification — chaque couple a un rôle distinct.
+
+**Dualité du sukun** :
+- `U+06E1` (ARABIC SMALL HIGH DOTLESS HEAD OF KHAH, ۡ) — **sukun phonétique** sur une consonne effectivement prononcée sans voyelle.
+- `U+0652` (ARABIC SUKUN, ْ) — marqueur **orthographique** sur une lettre silencieuse (الف الوقاية / alef al-wiqâyah) : l'alef final muet de `كَفَرُوا`, `آمَنُوا`, `كَانُوا`, `فَعَلُوا` ou le و silencieux de `أُولَٰٓئِك`.
+
+Les deux coexistent dans la même sourate. Al-Fatiha n'a aucun perfectif pluriel masculin, donc 0 × U+0652. Al-Baqara a ~396 × U+0652 (365 sur alef, 31 sur و) + ~2882 × U+06E1. Distribution canonique.
+
+**Open tanwin** :
+- `U+08F0/F1/F2` (OPEN FATHATAN / DAMMATAN / KASRATAN) — formes modernes où le tanwin est positionné au-dessus d'un espace dans la calligraphie papier. En imprimerie, la source peut insérer un `U+0020` entre le caractère tanwin et la lettre suivante (artefact typographique).
+- Les tanwin classiques `U+064B/C/D` restent valides mais ne portent pas la même information de rendu.
+
+**Pattern alef al-wiqâyah en encodage "open"** : `consonne + U+08F0 + U+0020 + ا|ى` où le ا|ى est silencieux et termine le mot. Le `U+0020` est un artefact d'imprimerie à retirer pour le rendu web (voir `packages/data/scripts/clean-open-tanwin-spaces.mjs`). **Ne jamais retirer l'espace après U+08F0/F1/F2 suivi d'autre chose** (ce sont des vraies frontières de mots).
+
+### Règle 9 — Classification exhaustive avant toute transformation bulk
+
+Toute opération qui modifie en masse le texte coranique (regex replace, script de nettoyage, normalisation Unicode, etc.) doit d'abord produire une **table de fréquences des matchs groupée par contexte linguistique**. Un pattern "visiblement typographique" peut masquer d'autres catégories (frontières de mots, usages orthographiques distincts, etc.).
+
+**Ordre d'opération obligatoire** :
+1. Identifier le pattern cible
+2. Scanner la donnée et **classifier chaque match** par contexte (lettre suivante, fin de mot vs continuation, présence de marque waqf, etc.)
+3. Ne garder dans la transformation que les catégories unanimement validées
+4. Documenter dans le commentaire du script les catégories **incluses** ET **exclues** avec leur justification
+5. Rendre le script **idempotent** (2ᵉ exécution = no-op) pour permettre les reruns sans risque
+
+Précédent : la première itération de nettoyage des open-tanwin (2026-04-18) a collapsé 225 frontières de mots légitimes faute de classification. Restauration nécessaire depuis la source, regex restreinte. Cette règle évite la récidive.
 
 ## Règles de l'assistant IA
 

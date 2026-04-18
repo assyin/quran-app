@@ -20,5 +20,22 @@
       "hizb": [1],
       "page": [1]
     }
+  },
+  {
+    "number": 2,
+    "slug": "al-baqara",
+    "nameArabic": "البقرة",
+    "nameTransliterated": "Al-Baqara",
+    "nameTranslations": {
+      "fr": "La Vache",
+      "en": "The Cow"
+    },
+    "revelationType": "medinan",
+    "verseCount": 286,
+    "position": {
+      "juz": [1, 2, 3],
+      "hizb": [1, 2, 3, 4, 5, 6],
+      "page": [2]
+    }
   }
 ]

@@ -13,5 +13,11 @@ body {
 
 .font-quran {
   font-family: var(--font-quran), "Amiri Quran", "Scheherazade New", serif;
-  font-feature-settings: normal;
+  /* Explicitly enable OpenType features that Arabic Quranic typography
+     relies on. "mark" / "mkmk" drive mark and mark-to-mark positioning
+     (needed for stacking tanwin, shadda, madda and small high marks over
+     consonants); "ccmp" feeds the shaper the character composition it
+     expects; "liga" / "rlig" / "calt" keep required and contextual
+     ligatures active. */
+  font-feature-settings: "mark" 1, "mkmk" 1, "ccmp" 1, "calt" 1, "rlig" 1, "liga" 1;
 }

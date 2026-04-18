@@ -1,10 +1,16 @@
 import { notFound } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
-import type { Surah, Verse } from "@quran/core";
-import { getSurahBySlug, SURAHS_METADATA } from "@quran/data";
+import type { Surah } from "@quran/core";
+import {
+  getSurahBySlug,
+  getSurahDisplay,
+  SURAHS_METADATA,
+  type SurahDisplay,
+} from "@quran/data";
 import { type Locale } from "@quran/i18n";
 import { VerseDisplay } from "../../../../components/VerseDisplay";
+import { toArabicNumerals } from "../../../../lib/arabic-numerals";
 
 type PageProps = {
   params: Promise<{ locale: string; slug: string }>;
@@ -21,24 +27,23 @@ export default async function SurahPage({ params }: PageProps) {
   const surah = getSurahBySlug(slug);
   if (!surah) notFound();
 
-  const [bismillah, ...rest] = surah.verses;
-  if (!bismillah) notFound();
+  const display = getSurahDisplay(surah);
 
-  return <SurahView surah={surah} bismillah={bismillah} rest={rest} locale={locale as Locale} />;
+  return (
+    <SurahView surah={surah} display={display} locale={locale as Locale} />
+  );
 }
 
 type SurahViewProps = {
   surah: Surah;
-  bismillah: Verse;
-  rest: Verse[];
+  display: SurahDisplay;
   locale: Locale;
 };
 
 // Presentational sub-component so we can cleanly call useTranslations from a
 // synchronous context (hooks can't be used inside an async server component).
-function SurahView({ surah, bismillah, rest, locale }: SurahViewProps) {
+function SurahView({ surah, display, locale }: SurahViewProps) {
   const t = useTranslations("surah");
-  const bismillahText = bismillah.textArabic.hafs ?? "";
 
   return (
     <main className="max-w-3xl mx-auto px-4 md:px-6 py-8">
@@ -55,31 +60,38 @@ function SurahView({ surah, bismillah, rest, locale }: SurahViewProps) {
         <p className="text-sm text-gray-500 mt-3">
           {t(surah.revelationType)}
           {" · "}
-          {t("versesCount", { count: surah.verseCount })}
+          {t("versesCount", {
+            count:
+              locale === "ar"
+                ? toArabicNumerals(surah.verseCount)
+                : surah.verseCount,
+          })}
         </p>
       </header>
 
-      <section className="py-10 border-b border-gray-800 text-center">
-        <p
-          dir="rtl"
-          lang="ar"
-          className="font-quran text-4xl md:text-5xl text-amber-400 leading-loose"
-        >
-          {bismillahText}
-        </p>
-        {locale !== "ar" && (
-          <p className="mt-4 text-sm text-gray-400 italic">
-            {t("bismillahTranslation")}
+      {display.bismillah && (
+        <section className="py-10 border-b border-gray-800 text-center">
+          <p
+            dir="rtl"
+            lang="ar"
+            className="font-quran text-4xl md:text-5xl text-amber-400 leading-loose"
+          >
+            {display.bismillah}
           </p>
-        )}
-      </section>
+          {locale !== "ar" && (
+            <p className="mt-4 text-sm text-gray-400 italic">
+              {t("bismillahTranslation")}
+            </p>
+          )}
+        </section>
+      )}
 
       <section>
-        {rest.map((verse, i) => (
+        {display.displayVerses.map(({ verse, displayNumber }) => (
           <VerseDisplay
             key={verse.id}
             verse={verse}
-            displayNumber={i + 1}
+            displayNumber={displayNumber}
             locale={locale}
           />
         ))}

@@ -82,3 +82,67 @@ export function getSurahBySlug(slug: string): Surah | null {
 
   return { ...metadata, verses };
 }
+
+// A verse paired with the number under which it should be displayed in the UI.
+// For most surahs the display number equals the verse's canonical verseNumber,
+// but for Al-Fatiha the numbering is shifted by one because verse 1:1 (the
+// Bismillah) is pulled out and shown as a header instead of a numbered verse.
+export type DisplayVerse = {
+  verse: Verse;
+  displayNumber: number;
+};
+
+// Result of applying the Bismillah convention to a surah, ready for rendering.
+// `bismillah` holds the Arabic text to render as a header block, or null when
+// the surah has no Bismillah header (At-Tawbah).
+export type SurahDisplay = {
+  bismillah: string | null;
+  displayVerses: DisplayVerse[];
+};
+
+// Resolves Bismillah handling per traditional Uthmani convention:
+//   - Surah 1 (Al-Fatiha): verse 1:1 IS the Bismillah and counts as verse 1 of
+//     the surah. It is extracted from the verse list and shown as a header,
+//     and the remaining 6 verses are displayed numbered 1 through 6.
+//   - Surah 9 (At-Tawbah): has NO Bismillah at all. All verses are rendered
+//     as-is with no header block.
+//   - All other surahs: the Bismillah is a universal surah separator that is
+//     NOT counted among the surah's verses. Its text is pulled from Al-Fatiha
+//     1:1 as the single source of truth to guarantee character-identical
+//     rendering across the whole Mushaf, and all verses are displayed under
+//     their canonical verseNumber.
+export function getSurahDisplay(surah: Surah): SurahDisplay {
+  if (surah.number === 1) {
+    const [first, ...rest] = surah.verses;
+    if (!first) {
+      return { bismillah: null, displayVerses: [] };
+    }
+    return {
+      bismillah: first.textArabic.hafs ?? null,
+      displayVerses: rest.map((verse, i) => ({
+        verse,
+        displayNumber: i + 1,
+      })),
+    };
+  }
+
+  if (surah.number === 9) {
+    return {
+      bismillah: null,
+      displayVerses: surah.verses.map((verse) => ({
+        verse,
+        displayNumber: verse.verseNumber,
+      })),
+    };
+  }
+
+  const fatiha = getSurahBySlug("al-fatiha");
+  const bismillah = fatiha?.verses[0]?.textArabic.hafs ?? null;
+  return {
+    bismillah,
+    displayVerses: surah.verses.map((verse) => ({
+      verse,
+      displayNumber: verse.verseNumber,
+    })),
+  };
+}
