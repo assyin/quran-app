@@ -1,9 +1,15 @@
 [
   {
     "_meta": {
-      "version": "1.0.0",
+      "version": "2.0.0",
       "source": "tanzil.net",
-      "downloadedAt": "2026-04-18"
+      "downloadedAt": "2026-04-19",
+      "sourceMetadata": "api.quran.com/api/v4 (chapters + juzs)",
+      "chapters": 114,
+      "preserved": [
+        1,
+        2
+      ]
     },
     "number": 1,
     "slug": "al-fatiha",
@@ -16,9 +22,15 @@
     "revelationType": "meccan",
     "verseCount": 7,
     "position": {
-      "juz": [1],
-      "hizb": [1],
-      "page": [1]
+      "juz": [
+        1
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
     }
   },
   {
@@ -33,9 +45,2617 @@
     "revelationType": "medinan",
     "verseCount": 286,
     "position": {
-      "juz": [1, 2, 3],
-      "hizb": [1, 2, 3, 4, 5, 6],
-      "page": [2]
+      "juz": [
+        1,
+        2,
+        3
+      ],
+      "hizb": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "page": [
+        2
+      ]
+    }
+  },
+  {
+    "number": 3,
+    "slug": "al-imran",
+    "nameArabic": "آل عمران",
+    "nameTransliterated": "Ali 'Imran",
+    "nameTranslations": {
+      "fr": "La famille de 'Imran",
+      "en": "Family of Imran"
+    },
+    "revelationType": "medinan",
+    "verseCount": 200,
+    "position": {
+      "juz": [
+        3,
+        4
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 4,
+    "slug": "an-nisa",
+    "nameArabic": "النساء",
+    "nameTransliterated": "An-Nisa",
+    "nameTranslations": {
+      "fr": "Les femmes",
+      "en": "The Women"
+    },
+    "revelationType": "medinan",
+    "verseCount": 176,
+    "position": {
+      "juz": [
+        4,
+        5,
+        6
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 5,
+    "slug": "al-maida",
+    "nameArabic": "المائدة",
+    "nameTransliterated": "Al-Ma'ida",
+    "nameTranslations": {
+      "fr": "La table servie",
+      "en": "The Table Spread"
+    },
+    "revelationType": "medinan",
+    "verseCount": 120,
+    "position": {
+      "juz": [
+        6,
+        7
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 6,
+    "slug": "al-anam",
+    "nameArabic": "الأنعام",
+    "nameTransliterated": "Al-An'am",
+    "nameTranslations": {
+      "fr": "Les bestiaux",
+      "en": "The Cattle"
+    },
+    "revelationType": "meccan",
+    "verseCount": 165,
+    "position": {
+      "juz": [
+        7,
+        8
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 7,
+    "slug": "al-araf",
+    "nameArabic": "الأعراف",
+    "nameTransliterated": "Al-A'raf",
+    "nameTranslations": {
+      "fr": "Al-A'raf",
+      "en": "The Heights"
+    },
+    "revelationType": "meccan",
+    "verseCount": 206,
+    "position": {
+      "juz": [
+        8,
+        9
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 8,
+    "slug": "al-anfal",
+    "nameArabic": "الأنفال",
+    "nameTransliterated": "Al-Anfal",
+    "nameTranslations": {
+      "fr": "Le butin",
+      "en": "The Spoils of War"
+    },
+    "revelationType": "medinan",
+    "verseCount": 75,
+    "position": {
+      "juz": [
+        9,
+        10
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 9,
+    "slug": "at-tawba",
+    "nameArabic": "التوبة",
+    "nameTransliterated": "At-Tawba",
+    "nameTranslations": {
+      "fr": "Le repentir",
+      "en": "The Repentance"
+    },
+    "revelationType": "medinan",
+    "verseCount": 129,
+    "position": {
+      "juz": [
+        10,
+        11
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 10,
+    "slug": "yunus",
+    "nameArabic": "يونس",
+    "nameTransliterated": "Yunus",
+    "nameTranslations": {
+      "fr": "Jonas",
+      "en": "Jonah"
+    },
+    "revelationType": "meccan",
+    "verseCount": 109,
+    "position": {
+      "juz": [
+        11
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 11,
+    "slug": "hud",
+    "nameArabic": "هود",
+    "nameTransliterated": "Hud",
+    "nameTranslations": {
+      "fr": "Houd",
+      "en": "Hud"
+    },
+    "revelationType": "meccan",
+    "verseCount": 123,
+    "position": {
+      "juz": [
+        11,
+        12
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 12,
+    "slug": "yusuf",
+    "nameArabic": "يوسف",
+    "nameTransliterated": "Yusuf",
+    "nameTranslations": {
+      "fr": "Joseph",
+      "en": "Joseph"
+    },
+    "revelationType": "meccan",
+    "verseCount": 111,
+    "position": {
+      "juz": [
+        12,
+        13
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 13,
+    "slug": "ar-rad",
+    "nameArabic": "الرعد",
+    "nameTransliterated": "Ar-Ra'd",
+    "nameTranslations": {
+      "fr": "Le tonnerre",
+      "en": "The Thunder"
+    },
+    "revelationType": "medinan",
+    "verseCount": 43,
+    "position": {
+      "juz": [
+        13
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 14,
+    "slug": "ibrahim",
+    "nameArabic": "ابراهيم",
+    "nameTransliterated": "Ibrahim",
+    "nameTranslations": {
+      "fr": "Abraham",
+      "en": "Abraham"
+    },
+    "revelationType": "meccan",
+    "verseCount": 52,
+    "position": {
+      "juz": [
+        13
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 15,
+    "slug": "al-hijr",
+    "nameArabic": "الحجر",
+    "nameTransliterated": "Al-Hijr",
+    "nameTranslations": {
+      "fr": "Al-Hijr",
+      "en": "The Rocky Tract"
+    },
+    "revelationType": "meccan",
+    "verseCount": 99,
+    "position": {
+      "juz": [
+        14
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 16,
+    "slug": "an-nahl",
+    "nameArabic": "النحل",
+    "nameTransliterated": "An-Nahl",
+    "nameTranslations": {
+      "fr": "Les abeilles",
+      "en": "The Bee"
+    },
+    "revelationType": "meccan",
+    "verseCount": 128,
+    "position": {
+      "juz": [
+        14
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 17,
+    "slug": "al-isra",
+    "nameArabic": "الإسراء",
+    "nameTransliterated": "Al-Isra",
+    "nameTranslations": {
+      "fr": "Le voyage nocturne",
+      "en": "The Night Journey"
+    },
+    "revelationType": "meccan",
+    "verseCount": 111,
+    "position": {
+      "juz": [
+        15
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 18,
+    "slug": "al-kahf",
+    "nameArabic": "الكهف",
+    "nameTransliterated": "Al-Kahf",
+    "nameTranslations": {
+      "fr": "La caverne",
+      "en": "The Cave"
+    },
+    "revelationType": "meccan",
+    "verseCount": 110,
+    "position": {
+      "juz": [
+        15,
+        16
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 19,
+    "slug": "maryam",
+    "nameArabic": "مريم",
+    "nameTransliterated": "Maryam",
+    "nameTranslations": {
+      "fr": "Marie",
+      "en": "Mary"
+    },
+    "revelationType": "meccan",
+    "verseCount": 98,
+    "position": {
+      "juz": [
+        16
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 20,
+    "slug": "ta-ha",
+    "nameArabic": "طه",
+    "nameTransliterated": "Taha",
+    "nameTranslations": {
+      "fr": "Ta-Ha",
+      "en": "Ta-Ha"
+    },
+    "revelationType": "meccan",
+    "verseCount": 135,
+    "position": {
+      "juz": [
+        16
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 21,
+    "slug": "al-anbiya",
+    "nameArabic": "الأنبياء",
+    "nameTransliterated": "Al-Anbya",
+    "nameTranslations": {
+      "fr": "Les prophètes",
+      "en": "The Prophets"
+    },
+    "revelationType": "meccan",
+    "verseCount": 112,
+    "position": {
+      "juz": [
+        17
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 22,
+    "slug": "al-hajj",
+    "nameArabic": "الحج",
+    "nameTransliterated": "Al-Hajj",
+    "nameTranslations": {
+      "fr": "Le pèlerinage",
+      "en": "The Pilgrimage"
+    },
+    "revelationType": "medinan",
+    "verseCount": 78,
+    "position": {
+      "juz": [
+        17
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 23,
+    "slug": "al-muminun",
+    "nameArabic": "المؤمنون",
+    "nameTransliterated": "Al-Mu'minun",
+    "nameTranslations": {
+      "fr": "Les croyants",
+      "en": "The Believers"
+    },
+    "revelationType": "meccan",
+    "verseCount": 118,
+    "position": {
+      "juz": [
+        18
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 24,
+    "slug": "an-nur",
+    "nameArabic": "النور",
+    "nameTransliterated": "An-Nur",
+    "nameTranslations": {
+      "fr": "La lumière",
+      "en": "The Light"
+    },
+    "revelationType": "medinan",
+    "verseCount": 64,
+    "position": {
+      "juz": [
+        18
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 25,
+    "slug": "al-furqan",
+    "nameArabic": "الفرقان",
+    "nameTransliterated": "Al-Furqan",
+    "nameTranslations": {
+      "fr": "Le discernement",
+      "en": "The Criterion"
+    },
+    "revelationType": "meccan",
+    "verseCount": 77,
+    "position": {
+      "juz": [
+        18,
+        19
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 26,
+    "slug": "ash-shuara",
+    "nameArabic": "الشعراء",
+    "nameTransliterated": "Ash-Shu'ara",
+    "nameTranslations": {
+      "fr": "Les poètes",
+      "en": "The Poets"
+    },
+    "revelationType": "meccan",
+    "verseCount": 227,
+    "position": {
+      "juz": [
+        19
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 27,
+    "slug": "an-naml",
+    "nameArabic": "النمل",
+    "nameTransliterated": "An-Naml",
+    "nameTranslations": {
+      "fr": "Les fourmis",
+      "en": "The Ant"
+    },
+    "revelationType": "meccan",
+    "verseCount": 93,
+    "position": {
+      "juz": [
+        19,
+        20
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 28,
+    "slug": "al-qasas",
+    "nameArabic": "القصص",
+    "nameTransliterated": "Al-Qasas",
+    "nameTranslations": {
+      "fr": "Le récit",
+      "en": "The Stories"
+    },
+    "revelationType": "meccan",
+    "verseCount": 88,
+    "position": {
+      "juz": [
+        20
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 29,
+    "slug": "al-ankabut",
+    "nameArabic": "العنكبوت",
+    "nameTransliterated": "Al-'Ankabut",
+    "nameTranslations": {
+      "fr": "L'araignée",
+      "en": "The Spider"
+    },
+    "revelationType": "meccan",
+    "verseCount": 69,
+    "position": {
+      "juz": [
+        20,
+        21
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 30,
+    "slug": "ar-rum",
+    "nameArabic": "الروم",
+    "nameTransliterated": "Ar-Rum",
+    "nameTranslations": {
+      "fr": "Les romains",
+      "en": "The Romans"
+    },
+    "revelationType": "meccan",
+    "verseCount": 60,
+    "position": {
+      "juz": [
+        21
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 31,
+    "slug": "luqman",
+    "nameArabic": "لقمان",
+    "nameTransliterated": "Luqman",
+    "nameTranslations": {
+      "fr": "Louqman",
+      "en": "Luqman"
+    },
+    "revelationType": "meccan",
+    "verseCount": 34,
+    "position": {
+      "juz": [
+        21
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 32,
+    "slug": "as-sajda",
+    "nameArabic": "السجدة",
+    "nameTransliterated": "As-Sajda",
+    "nameTranslations": {
+      "fr": "La prosternation",
+      "en": "The Prostration"
+    },
+    "revelationType": "meccan",
+    "verseCount": 30,
+    "position": {
+      "juz": [
+        21
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 33,
+    "slug": "al-ahzab",
+    "nameArabic": "الأحزاب",
+    "nameTransliterated": "Al-Ahzab",
+    "nameTranslations": {
+      "fr": "Les coalisés",
+      "en": "The Combined Forces"
+    },
+    "revelationType": "medinan",
+    "verseCount": 73,
+    "position": {
+      "juz": [
+        21,
+        22
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 34,
+    "slug": "saba",
+    "nameArabic": "سبإ",
+    "nameTransliterated": "Saba",
+    "nameTranslations": {
+      "fr": "Saba'",
+      "en": "Sheba"
+    },
+    "revelationType": "meccan",
+    "verseCount": 54,
+    "position": {
+      "juz": [
+        22
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 35,
+    "slug": "fatir",
+    "nameArabic": "فاطر",
+    "nameTransliterated": "Fatir",
+    "nameTranslations": {
+      "fr": "Le Créateur",
+      "en": "Originator"
+    },
+    "revelationType": "meccan",
+    "verseCount": 45,
+    "position": {
+      "juz": [
+        22
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 36,
+    "slug": "ya-sin",
+    "nameArabic": "يس",
+    "nameTransliterated": "Ya-Sin",
+    "nameTranslations": {
+      "fr": "Ya-Sin",
+      "en": "Ya Sin"
+    },
+    "revelationType": "meccan",
+    "verseCount": 83,
+    "position": {
+      "juz": [
+        22,
+        23
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 37,
+    "slug": "as-saffat",
+    "nameArabic": "الصافات",
+    "nameTransliterated": "As-Saffat",
+    "nameTranslations": {
+      "fr": "Les rangés",
+      "en": "Those who set the Ranks"
+    },
+    "revelationType": "meccan",
+    "verseCount": 182,
+    "position": {
+      "juz": [
+        23
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 38,
+    "slug": "sad",
+    "nameArabic": "ص",
+    "nameTransliterated": "Sad",
+    "nameTranslations": {
+      "fr": "Sad",
+      "en": "The Letter \"Saad\""
+    },
+    "revelationType": "meccan",
+    "verseCount": 88,
+    "position": {
+      "juz": [
+        23
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 39,
+    "slug": "az-zumar",
+    "nameArabic": "الزمر",
+    "nameTransliterated": "Az-Zumar",
+    "nameTranslations": {
+      "fr": "Les groupes",
+      "en": "The Troops"
+    },
+    "revelationType": "meccan",
+    "verseCount": 75,
+    "position": {
+      "juz": [
+        23,
+        24
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 40,
+    "slug": "ghafir",
+    "nameArabic": "غافر",
+    "nameTransliterated": "Ghafir",
+    "nameTranslations": {
+      "fr": "Le Pardonneur",
+      "en": "The Forgiver"
+    },
+    "revelationType": "meccan",
+    "verseCount": 85,
+    "position": {
+      "juz": [
+        24
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 41,
+    "slug": "fussilat",
+    "nameArabic": "فصلت",
+    "nameTransliterated": "Fussilat",
+    "nameTranslations": {
+      "fr": "Les versets explicites",
+      "en": "Explained in Detail"
+    },
+    "revelationType": "meccan",
+    "verseCount": 54,
+    "position": {
+      "juz": [
+        24,
+        25
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 42,
+    "slug": "ash-shura",
+    "nameArabic": "الشورى",
+    "nameTransliterated": "Ash-Shuraa",
+    "nameTranslations": {
+      "fr": "La concertation",
+      "en": "The Consultation"
+    },
+    "revelationType": "meccan",
+    "verseCount": 53,
+    "position": {
+      "juz": [
+        25
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 43,
+    "slug": "az-zukhruf",
+    "nameArabic": "الزخرف",
+    "nameTransliterated": "Az-Zukhruf",
+    "nameTranslations": {
+      "fr": "L'ornement",
+      "en": "The Ornaments of Gold"
+    },
+    "revelationType": "meccan",
+    "verseCount": 89,
+    "position": {
+      "juz": [
+        25
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 44,
+    "slug": "ad-dukhan",
+    "nameArabic": "الدخان",
+    "nameTransliterated": "Ad-Dukhan",
+    "nameTranslations": {
+      "fr": "La fumée",
+      "en": "The Smoke"
+    },
+    "revelationType": "meccan",
+    "verseCount": 59,
+    "position": {
+      "juz": [
+        25
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 45,
+    "slug": "al-jathiya",
+    "nameArabic": "الجاثية",
+    "nameTransliterated": "Al-Jathiya",
+    "nameTranslations": {
+      "fr": "L'agenouillée",
+      "en": "The Crouching"
+    },
+    "revelationType": "meccan",
+    "verseCount": 37,
+    "position": {
+      "juz": [
+        25
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 46,
+    "slug": "al-ahqaf",
+    "nameArabic": "الأحقاف",
+    "nameTransliterated": "Al-Ahqaf",
+    "nameTranslations": {
+      "fr": "Al-Ahqaf",
+      "en": "The Wind-Curved Sandhills"
+    },
+    "revelationType": "meccan",
+    "verseCount": 35,
+    "position": {
+      "juz": [
+        26
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 47,
+    "slug": "muhammad",
+    "nameArabic": "محمد",
+    "nameTransliterated": "Muhammad",
+    "nameTranslations": {
+      "fr": "Mouhammad",
+      "en": "Muhammad"
+    },
+    "revelationType": "medinan",
+    "verseCount": 38,
+    "position": {
+      "juz": [
+        26
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 48,
+    "slug": "al-fath",
+    "nameArabic": "الفتح",
+    "nameTransliterated": "Al-Fath",
+    "nameTranslations": {
+      "fr": "La victoire éclatante",
+      "en": "The Victory"
+    },
+    "revelationType": "medinan",
+    "verseCount": 29,
+    "position": {
+      "juz": [
+        26
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 49,
+    "slug": "al-hujurat",
+    "nameArabic": "الحجرات",
+    "nameTransliterated": "Al-Hujurat",
+    "nameTranslations": {
+      "fr": "Les appartements",
+      "en": "The Rooms"
+    },
+    "revelationType": "medinan",
+    "verseCount": 18,
+    "position": {
+      "juz": [
+        26
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 50,
+    "slug": "qaf",
+    "nameArabic": "ق",
+    "nameTransliterated": "Qaf",
+    "nameTranslations": {
+      "fr": "Qaf",
+      "en": "The Letter \"Qaf\""
+    },
+    "revelationType": "meccan",
+    "verseCount": 45,
+    "position": {
+      "juz": [
+        26
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 51,
+    "slug": "adh-dhariyat",
+    "nameArabic": "الذاريات",
+    "nameTransliterated": "Adh-Dhariyat",
+    "nameTranslations": {
+      "fr": "Qui éparpillent",
+      "en": "The Winnowing Winds"
+    },
+    "revelationType": "meccan",
+    "verseCount": 60,
+    "position": {
+      "juz": [
+        26,
+        27
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 52,
+    "slug": "at-tur",
+    "nameArabic": "الطور",
+    "nameTransliterated": "At-Tur",
+    "nameTranslations": {
+      "fr": "Le mont At-Tour",
+      "en": "The Mount"
+    },
+    "revelationType": "meccan",
+    "verseCount": 49,
+    "position": {
+      "juz": [
+        27
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 53,
+    "slug": "an-najm",
+    "nameArabic": "النجم",
+    "nameTransliterated": "An-Najm",
+    "nameTranslations": {
+      "fr": "L'étoile",
+      "en": "The Star"
+    },
+    "revelationType": "meccan",
+    "verseCount": 62,
+    "position": {
+      "juz": [
+        27
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 54,
+    "slug": "al-qamar",
+    "nameArabic": "القمر",
+    "nameTransliterated": "Al-Qamar",
+    "nameTranslations": {
+      "fr": "La lune",
+      "en": "The Moon"
+    },
+    "revelationType": "meccan",
+    "verseCount": 55,
+    "position": {
+      "juz": [
+        27
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 55,
+    "slug": "ar-rahman",
+    "nameArabic": "الرحمن",
+    "nameTransliterated": "Ar-Rahman",
+    "nameTranslations": {
+      "fr": "Le Tout Miséricordieux",
+      "en": "The Beneficent"
+    },
+    "revelationType": "medinan",
+    "verseCount": 78,
+    "position": {
+      "juz": [
+        27
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 56,
+    "slug": "al-waqia",
+    "nameArabic": "الواقعة",
+    "nameTransliterated": "Al-Waqi'a",
+    "nameTranslations": {
+      "fr": "L'inévitable",
+      "en": "The Inevitable"
+    },
+    "revelationType": "meccan",
+    "verseCount": 96,
+    "position": {
+      "juz": [
+        27
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 57,
+    "slug": "al-hadid",
+    "nameArabic": "الحديد",
+    "nameTransliterated": "Al-Hadid",
+    "nameTranslations": {
+      "fr": "Le fer",
+      "en": "The Iron"
+    },
+    "revelationType": "medinan",
+    "verseCount": 29,
+    "position": {
+      "juz": [
+        27
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 58,
+    "slug": "al-mujadila",
+    "nameArabic": "المجادلة",
+    "nameTransliterated": "Al-Mujadila",
+    "nameTranslations": {
+      "fr": "La discussion",
+      "en": "The Pleading Woman"
+    },
+    "revelationType": "medinan",
+    "verseCount": 22,
+    "position": {
+      "juz": [
+        28
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 59,
+    "slug": "al-hashr",
+    "nameArabic": "الحشر",
+    "nameTransliterated": "Al-Hashr",
+    "nameTranslations": {
+      "fr": "L'exode",
+      "en": "The Exile"
+    },
+    "revelationType": "medinan",
+    "verseCount": 24,
+    "position": {
+      "juz": [
+        28
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 60,
+    "slug": "al-mumtahana",
+    "nameArabic": "الممتحنة",
+    "nameTransliterated": "Al-Mumtahana",
+    "nameTranslations": {
+      "fr": "L'éprouvée",
+      "en": "She that is to be examined"
+    },
+    "revelationType": "medinan",
+    "verseCount": 13,
+    "position": {
+      "juz": [
+        28
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 61,
+    "slug": "as-saff",
+    "nameArabic": "الصف",
+    "nameTransliterated": "As-Saf",
+    "nameTranslations": {
+      "fr": "Le rang",
+      "en": "The Ranks"
+    },
+    "revelationType": "medinan",
+    "verseCount": 14,
+    "position": {
+      "juz": [
+        28
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 62,
+    "slug": "al-jumua",
+    "nameArabic": "الجمعة",
+    "nameTransliterated": "Al-Jumu'a",
+    "nameTranslations": {
+      "fr": "Le vendredi",
+      "en": "The Congregation, Friday"
+    },
+    "revelationType": "medinan",
+    "verseCount": 11,
+    "position": {
+      "juz": [
+        28
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 63,
+    "slug": "al-munafiqun",
+    "nameArabic": "المنافقون",
+    "nameTransliterated": "Al-Munafiqun",
+    "nameTranslations": {
+      "fr": "Les hypocrites",
+      "en": "The Hypocrites"
+    },
+    "revelationType": "medinan",
+    "verseCount": 11,
+    "position": {
+      "juz": [
+        28
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 64,
+    "slug": "at-taghabun",
+    "nameArabic": "التغابن",
+    "nameTransliterated": "At-Taghabun",
+    "nameTranslations": {
+      "fr": "La grande perte",
+      "en": "The Mutual Disillusion"
+    },
+    "revelationType": "medinan",
+    "verseCount": 18,
+    "position": {
+      "juz": [
+        28
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 65,
+    "slug": "at-talaq",
+    "nameArabic": "الطلاق",
+    "nameTransliterated": "At-Talaq",
+    "nameTranslations": {
+      "fr": "Le divorce",
+      "en": "The Divorce"
+    },
+    "revelationType": "medinan",
+    "verseCount": 12,
+    "position": {
+      "juz": [
+        28
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 66,
+    "slug": "at-tahrim",
+    "nameArabic": "التحريم",
+    "nameTransliterated": "At-Tahrim",
+    "nameTranslations": {
+      "fr": "L'interdiction",
+      "en": "The Prohibition"
+    },
+    "revelationType": "medinan",
+    "verseCount": 12,
+    "position": {
+      "juz": [
+        28
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 67,
+    "slug": "al-mulk",
+    "nameArabic": "الملك",
+    "nameTransliterated": "Al-Mulk",
+    "nameTranslations": {
+      "fr": "La royauté",
+      "en": "The Sovereignty"
+    },
+    "revelationType": "meccan",
+    "verseCount": 30,
+    "position": {
+      "juz": [
+        29
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 68,
+    "slug": "al-qalam",
+    "nameArabic": "القلم",
+    "nameTransliterated": "Al-Qalam",
+    "nameTranslations": {
+      "fr": "La plume",
+      "en": "The Pen"
+    },
+    "revelationType": "meccan",
+    "verseCount": 52,
+    "position": {
+      "juz": [
+        29
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 69,
+    "slug": "al-haqqa",
+    "nameArabic": "الحاقة",
+    "nameTransliterated": "Al-Haqqa",
+    "nameTranslations": {
+      "fr": "L'inéluctable",
+      "en": "The Reality"
+    },
+    "revelationType": "meccan",
+    "verseCount": 52,
+    "position": {
+      "juz": [
+        29
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 70,
+    "slug": "al-maarij",
+    "nameArabic": "المعارج",
+    "nameTransliterated": "Al-Ma'arij",
+    "nameTranslations": {
+      "fr": "Les voies d'ascension",
+      "en": "The Ascending Stairways"
+    },
+    "revelationType": "meccan",
+    "verseCount": 44,
+    "position": {
+      "juz": [
+        29
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 71,
+    "slug": "nuh",
+    "nameArabic": "نوح",
+    "nameTransliterated": "Nuh",
+    "nameTranslations": {
+      "fr": "Noé",
+      "en": "Noah"
+    },
+    "revelationType": "meccan",
+    "verseCount": 28,
+    "position": {
+      "juz": [
+        29
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 72,
+    "slug": "al-jinn",
+    "nameArabic": "الجن",
+    "nameTransliterated": "Al-Jinn",
+    "nameTranslations": {
+      "fr": "Les djinns",
+      "en": "The Jinn"
+    },
+    "revelationType": "meccan",
+    "verseCount": 28,
+    "position": {
+      "juz": [
+        29
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 73,
+    "slug": "al-muzzammil",
+    "nameArabic": "المزمل",
+    "nameTransliterated": "Al-Muzzammil",
+    "nameTranslations": {
+      "fr": "L'enveloppé",
+      "en": "The Enshrouded One"
+    },
+    "revelationType": "meccan",
+    "verseCount": 20,
+    "position": {
+      "juz": [
+        29
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 74,
+    "slug": "al-muddaththir",
+    "nameArabic": "المدثر",
+    "nameTransliterated": "Al-Muddaththir",
+    "nameTranslations": {
+      "fr": "Celui qui se couvre",
+      "en": "The Cloaked One"
+    },
+    "revelationType": "meccan",
+    "verseCount": 56,
+    "position": {
+      "juz": [
+        29
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 75,
+    "slug": "al-qiyama",
+    "nameArabic": "القيامة",
+    "nameTransliterated": "Al-Qiyama",
+    "nameTranslations": {
+      "fr": "La résurrection",
+      "en": "The Resurrection"
+    },
+    "revelationType": "meccan",
+    "verseCount": 40,
+    "position": {
+      "juz": [
+        29
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 76,
+    "slug": "al-insan",
+    "nameArabic": "الانسان",
+    "nameTransliterated": "Al-Insan",
+    "nameTranslations": {
+      "fr": "L'homme",
+      "en": "The Man"
+    },
+    "revelationType": "medinan",
+    "verseCount": 31,
+    "position": {
+      "juz": [
+        29
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 77,
+    "slug": "al-mursalat",
+    "nameArabic": "المرسلات",
+    "nameTransliterated": "Al-Mursalat",
+    "nameTranslations": {
+      "fr": "Les envoyés",
+      "en": "The Emissaries"
+    },
+    "revelationType": "meccan",
+    "verseCount": 50,
+    "position": {
+      "juz": [
+        29
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 78,
+    "slug": "an-naba",
+    "nameArabic": "النبإ",
+    "nameTransliterated": "An-Naba",
+    "nameTranslations": {
+      "fr": "La nouvelle",
+      "en": "The Tidings"
+    },
+    "revelationType": "meccan",
+    "verseCount": 40,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 79,
+    "slug": "an-naziat",
+    "nameArabic": "النازعات",
+    "nameTransliterated": "An-Nazi'at",
+    "nameTranslations": {
+      "fr": "Ceux qui arrachent",
+      "en": "Those who drag forth"
+    },
+    "revelationType": "meccan",
+    "verseCount": 46,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 80,
+    "slug": "abasa",
+    "nameArabic": "عبس",
+    "nameTransliterated": "'Abasa",
+    "nameTranslations": {
+      "fr": "Il s'est renfrogné",
+      "en": "He Frowned"
+    },
+    "revelationType": "meccan",
+    "verseCount": 42,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 81,
+    "slug": "at-takwir",
+    "nameArabic": "التكوير",
+    "nameTransliterated": "At-Takwir",
+    "nameTranslations": {
+      "fr": "L'obscurcissement",
+      "en": "The Overthrowing"
+    },
+    "revelationType": "meccan",
+    "verseCount": 29,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 82,
+    "slug": "al-infitar",
+    "nameArabic": "الإنفطار",
+    "nameTransliterated": "Al-Infitar",
+    "nameTranslations": {
+      "fr": "La rupture",
+      "en": "The Cleaving"
+    },
+    "revelationType": "meccan",
+    "verseCount": 19,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 83,
+    "slug": "al-mutaffifin",
+    "nameArabic": "المطففين",
+    "nameTransliterated": "Al-Mutaffifin",
+    "nameTranslations": {
+      "fr": "Les fraudeurs",
+      "en": "The Defrauding"
+    },
+    "revelationType": "meccan",
+    "verseCount": 36,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 84,
+    "slug": "al-inshiqaq",
+    "nameArabic": "الإنشقاق",
+    "nameTransliterated": "Al-Inshiqaq",
+    "nameTranslations": {
+      "fr": "La déchirure",
+      "en": "The Sundering"
+    },
+    "revelationType": "meccan",
+    "verseCount": 25,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 85,
+    "slug": "al-buruj",
+    "nameArabic": "البروج",
+    "nameTransliterated": "Al-Buruj",
+    "nameTranslations": {
+      "fr": "Les constellations",
+      "en": "The Mansions of the Stars"
+    },
+    "revelationType": "meccan",
+    "verseCount": 22,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 86,
+    "slug": "at-tariq",
+    "nameArabic": "الطارق",
+    "nameTransliterated": "At-Tariq",
+    "nameTranslations": {
+      "fr": "L'astre nocturne",
+      "en": "The Nightcommer"
+    },
+    "revelationType": "meccan",
+    "verseCount": 17,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 87,
+    "slug": "al-ala",
+    "nameArabic": "الأعلى",
+    "nameTransliterated": "Al-A'la",
+    "nameTranslations": {
+      "fr": "Le Très-Haut",
+      "en": "The Most High"
+    },
+    "revelationType": "meccan",
+    "verseCount": 19,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 88,
+    "slug": "al-ghashiya",
+    "nameArabic": "الغاشية",
+    "nameTransliterated": "Al-Ghashiya",
+    "nameTranslations": {
+      "fr": "L'enveloppante",
+      "en": "The Overwhelming"
+    },
+    "revelationType": "meccan",
+    "verseCount": 26,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 89,
+    "slug": "al-fajr",
+    "nameArabic": "الفجر",
+    "nameTransliterated": "Al-Fajr",
+    "nameTranslations": {
+      "fr": "L'aube",
+      "en": "The Dawn"
+    },
+    "revelationType": "meccan",
+    "verseCount": 30,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 90,
+    "slug": "al-balad",
+    "nameArabic": "البلد",
+    "nameTransliterated": "Al-Balad",
+    "nameTranslations": {
+      "fr": "La cité",
+      "en": "The City"
+    },
+    "revelationType": "meccan",
+    "verseCount": 20,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 91,
+    "slug": "ash-shams",
+    "nameArabic": "الشمس",
+    "nameTransliterated": "Ash-Shams",
+    "nameTranslations": {
+      "fr": "Le soleil",
+      "en": "The Sun"
+    },
+    "revelationType": "meccan",
+    "verseCount": 15,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 92,
+    "slug": "al-layl",
+    "nameArabic": "الليل",
+    "nameTransliterated": "Al-Layl",
+    "nameTranslations": {
+      "fr": "La nuit",
+      "en": "The Night"
+    },
+    "revelationType": "meccan",
+    "verseCount": 21,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 93,
+    "slug": "ad-duha",
+    "nameArabic": "الضحى",
+    "nameTransliterated": "Ad-Duhaa",
+    "nameTranslations": {
+      "fr": "Le jour montant",
+      "en": "The Morning Hours"
+    },
+    "revelationType": "meccan",
+    "verseCount": 11,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 94,
+    "slug": "ash-sharh",
+    "nameArabic": "الشرح",
+    "nameTransliterated": "Ash-Sharh",
+    "nameTranslations": {
+      "fr": "L'ouverture",
+      "en": "The Relief"
+    },
+    "revelationType": "meccan",
+    "verseCount": 8,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 95,
+    "slug": "at-tin",
+    "nameArabic": "التين",
+    "nameTransliterated": "At-Tin",
+    "nameTranslations": {
+      "fr": "Les figues",
+      "en": "The Fig"
+    },
+    "revelationType": "meccan",
+    "verseCount": 8,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 96,
+    "slug": "al-alaq",
+    "nameArabic": "العلق",
+    "nameTransliterated": "Al-'Alaq",
+    "nameTranslations": {
+      "fr": "L'adhérence",
+      "en": "The Clot"
+    },
+    "revelationType": "meccan",
+    "verseCount": 19,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 97,
+    "slug": "al-qadr",
+    "nameArabic": "القدر",
+    "nameTransliterated": "Al-Qadr",
+    "nameTranslations": {
+      "fr": "La destinée",
+      "en": "The Power"
+    },
+    "revelationType": "meccan",
+    "verseCount": 5,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 98,
+    "slug": "al-bayyina",
+    "nameArabic": "البينة",
+    "nameTransliterated": "Al-Bayyina",
+    "nameTranslations": {
+      "fr": "La preuve",
+      "en": "The Clear Proof"
+    },
+    "revelationType": "medinan",
+    "verseCount": 8,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 99,
+    "slug": "az-zalzala",
+    "nameArabic": "الزلزلة",
+    "nameTransliterated": "Az-Zalzala",
+    "nameTranslations": {
+      "fr": "Le séisme",
+      "en": "The Earthquake"
+    },
+    "revelationType": "medinan",
+    "verseCount": 8,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 100,
+    "slug": "al-adiyat",
+    "nameArabic": "العاديات",
+    "nameTransliterated": "Al-'Adiyat",
+    "nameTranslations": {
+      "fr": "Les coursiers",
+      "en": "The Courser"
+    },
+    "revelationType": "meccan",
+    "verseCount": 11,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 101,
+    "slug": "al-qaria",
+    "nameArabic": "القارعة",
+    "nameTransliterated": "Al-Qari'a",
+    "nameTranslations": {
+      "fr": "Le fracas",
+      "en": "The Calamity"
+    },
+    "revelationType": "meccan",
+    "verseCount": 11,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 102,
+    "slug": "at-takathur",
+    "nameArabic": "التكاثر",
+    "nameTransliterated": "At-Takathur",
+    "nameTranslations": {
+      "fr": "La course aux richesses",
+      "en": "The Rivalry in world increase"
+    },
+    "revelationType": "meccan",
+    "verseCount": 8,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 103,
+    "slug": "al-asr",
+    "nameArabic": "العصر",
+    "nameTransliterated": "Al-'Asr",
+    "nameTranslations": {
+      "fr": "Le temps",
+      "en": "The Declining Day"
+    },
+    "revelationType": "meccan",
+    "verseCount": 3,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 104,
+    "slug": "al-humaza",
+    "nameArabic": "الهمزة",
+    "nameTransliterated": "Al-Humaza",
+    "nameTranslations": {
+      "fr": "Les calomniateurs",
+      "en": "The Traducer"
+    },
+    "revelationType": "meccan",
+    "verseCount": 9,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 105,
+    "slug": "al-fil",
+    "nameArabic": "الفيل",
+    "nameTransliterated": "Al-Fil",
+    "nameTranslations": {
+      "fr": "L'éléphant",
+      "en": "The Elephant"
+    },
+    "revelationType": "meccan",
+    "verseCount": 5,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 106,
+    "slug": "quraysh",
+    "nameArabic": "قريش",
+    "nameTransliterated": "Quraysh",
+    "nameTranslations": {
+      "fr": "Les Quraysh",
+      "en": "Quraysh"
+    },
+    "revelationType": "meccan",
+    "verseCount": 4,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 107,
+    "slug": "al-maun",
+    "nameArabic": "الماعون",
+    "nameTransliterated": "Al-Ma'un",
+    "nameTranslations": {
+      "fr": "L'entraide",
+      "en": "The Small kindnesses"
+    },
+    "revelationType": "meccan",
+    "verseCount": 7,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 108,
+    "slug": "al-kawthar",
+    "nameArabic": "الكوثر",
+    "nameTransliterated": "Al-Kawthar",
+    "nameTranslations": {
+      "fr": "L'abondance",
+      "en": "The Abundance"
+    },
+    "revelationType": "meccan",
+    "verseCount": 3,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 109,
+    "slug": "al-kafirun",
+    "nameArabic": "الكافرون",
+    "nameTransliterated": "Al-Kafirun",
+    "nameTranslations": {
+      "fr": "Les mécréants",
+      "en": "The Disbelievers"
+    },
+    "revelationType": "meccan",
+    "verseCount": 6,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 110,
+    "slug": "an-nasr",
+    "nameArabic": "النصر",
+    "nameTransliterated": "An-Nasr",
+    "nameTranslations": {
+      "fr": "Le secours",
+      "en": "The Divine Support"
+    },
+    "revelationType": "medinan",
+    "verseCount": 3,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 111,
+    "slug": "al-masad",
+    "nameArabic": "المسد",
+    "nameTransliterated": "Al-Masad",
+    "nameTranslations": {
+      "fr": "Les fibres",
+      "en": "The Palm Fiber"
+    },
+    "revelationType": "meccan",
+    "verseCount": 5,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 112,
+    "slug": "al-ikhlas",
+    "nameArabic": "الإخلاص",
+    "nameTransliterated": "Al-Ikhlas",
+    "nameTranslations": {
+      "fr": "La sincérité",
+      "en": "The Sincerity"
+    },
+    "revelationType": "meccan",
+    "verseCount": 4,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 113,
+    "slug": "al-falaq",
+    "nameArabic": "الفلق",
+    "nameTransliterated": "Al-Falaq",
+    "nameTranslations": {
+      "fr": "L'aube naissante",
+      "en": "The Daybreak"
+    },
+    "revelationType": "meccan",
+    "verseCount": 5,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 114,
+    "slug": "an-nas",
+    "nameArabic": "الناس",
+    "nameTransliterated": "An-Nas",
+    "nameTranslations": {
+      "fr": "Les humains",
+      "en": "Mankind"
+    },
+    "revelationType": "meccan",
+    "verseCount": 6,
+    "position": {
+      "juz": [
+        30
+      ],
+      "hizb": [
+        1
+      ],
+      "page": [
+        1
+      ]
     }
   }
 ]
