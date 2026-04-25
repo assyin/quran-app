@@ -1,3 +1,4 @@
+import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
@@ -11,9 +12,17 @@ import {
 } from "@quran/data";
 import { type Locale } from "@quran/i18n";
 import { Breadcrumb } from "../../../../components/Breadcrumb";
+import { DisplayModeToggle } from "../../../../components/DisplayModeToggle";
+import { SurahMushafView } from "../../../../components/SurahMushafView";
 import { SurahNavigation } from "../../../../components/SurahNavigation";
 import { VerseDisplay } from "../../../../components/VerseDisplay";
 import { toArabicNumerals } from "../../../../lib/arabic-numerals";
+import {
+  COOKIE_DISPLAY_MODE,
+  DEFAULT_DISPLAY_MODE,
+  DISPLAY_MODES,
+  type DisplayMode,
+} from "../../../../lib/preferences";
 
 type PageProps = {
   params: Promise<{ locale: string; slug: string }>;
@@ -33,6 +42,17 @@ export default async function SurahPage({ params }: PageProps) {
   const display = getSurahDisplay(surah);
   const { previous, next } = getSurahNeighbors(slug);
 
+  // Read the user's display-mode preference from the cookie. Reading cookies
+  // opts the page out of static rendering for this request — that's fine
+  // because we still benefit from streaming and the data itself is constant.
+  const cookieStore = await cookies();
+  const cookieValue = cookieStore.get(COOKIE_DISPLAY_MODE)?.value;
+  const displayMode: DisplayMode = (DISPLAY_MODES as readonly string[]).includes(
+    cookieValue ?? "",
+  )
+    ? (cookieValue as DisplayMode)
+    : DEFAULT_DISPLAY_MODE;
+
   return (
     <SurahView
       surah={surah}
@@ -40,6 +60,7 @@ export default async function SurahPage({ params }: PageProps) {
       previous={previous}
       next={next}
       locale={locale as Locale}
+      displayMode={displayMode}
     />
   );
 }
@@ -50,11 +71,19 @@ type SurahViewProps = {
   previous: SurahMetadata | null;
   next: SurahMetadata | null;
   locale: Locale;
+  displayMode: DisplayMode;
 };
 
 // Presentational sub-component so we can cleanly call useTranslations from a
 // synchronous context (hooks can't be used inside an async server component).
-function SurahView({ surah, display, previous, next, locale }: SurahViewProps) {
+function SurahView({
+  surah,
+  display,
+  previous,
+  next,
+  locale,
+  displayMode,
+}: SurahViewProps) {
   const t = useTranslations("surah");
 
   return (
@@ -90,33 +119,43 @@ function SurahView({ surah, display, previous, next, locale }: SurahViewProps) {
         </p>
       </header>
 
-      {display.bismillah && (
-        <section className="py-10 border-b border-gray-800 text-center">
-          <p
-            dir="rtl"
-            lang="ar"
-            className="font-quran text-4xl md:text-5xl text-amber-400 leading-loose"
-          >
-            {display.bismillah}
-          </p>
-          {locale !== "ar" && (
-            <p className="mt-4 text-sm text-gray-400 italic">
-              {t("bismillahTranslation")}
-            </p>
-          )}
-        </section>
-      )}
+      <div className="flex justify-center mt-6">
+        <DisplayModeToggle />
+      </div>
 
-      <section>
-        {display.displayVerses.map(({ verse, displayNumber }) => (
-          <VerseDisplay
-            key={verse.id}
-            verse={verse}
-            displayNumber={displayNumber}
-            locale={locale}
-          />
-        ))}
-      </section>
+      {displayMode === "mushaf" ? (
+        <SurahMushafView display={display} locale={locale} />
+      ) : (
+        <>
+          {display.bismillah && (
+            <section className="py-10 border-b border-gray-800 text-center">
+              <p
+                dir="rtl"
+                lang="ar"
+                className="font-quran text-4xl md:text-5xl text-amber-400 leading-loose"
+              >
+                {display.bismillah}
+              </p>
+              {locale !== "ar" && (
+                <p className="mt-4 text-sm text-gray-400 italic">
+                  {t("bismillahTranslation")}
+                </p>
+              )}
+            </section>
+          )}
+
+          <section>
+            {display.displayVerses.map(({ verse, displayNumber }) => (
+              <VerseDisplay
+                key={verse.id}
+                verse={verse}
+                displayNumber={displayNumber}
+                locale={locale}
+              />
+            ))}
+          </section>
+        </>
+      )}
 
       <SurahNavigation previous={previous} next={next} locale={locale} />
 

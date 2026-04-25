@@ -8,5 +8,11 @@
   "previousSurah": "Previous surah",
   "nextSurah": "Next surah",
   "allSurahs": "All surahs",
-  "breadcrumbQuran": "Quran"
+  "breadcrumbQuran": "Quran",
+  "displayMode": {
+    "label": "Display",
+    "verses": "Verse by verse",
+    "mushaf": "Mushaf mode",
+    "translation": "Translation"
+  }
 }

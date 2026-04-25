@@ -1,9 +1,17 @@
-// Cookie-backed user preferences for the index page. We use cookies (rather
-// than localStorage) so the values can be read server-side later if we ever
-// want SSR-aware defaults — but for now reads happen client-side only to keep
-// hydration simple.
+// Cookie-backed user preferences. Shared constants are the single source of
+// truth so server components (reading via next/headers) and client toggles
+// (reading/writing via document.cookie) always agree on cookie names and
+// allowed values.
 
 const ONE_YEAR_SECONDS = 60 * 60 * 24 * 365;
+
+// Surah page display mode. Read server-side (in [slug]/page.tsx) to decide
+// which view to render, and toggled client-side via DisplayModeToggle which
+// then triggers router.refresh() to re-fetch with the new mode.
+export const COOKIE_DISPLAY_MODE = "surah-display-mode";
+export const DISPLAY_MODES = ["verses", "mushaf"] as const;
+export type DisplayMode = (typeof DISPLAY_MODES)[number];
+export const DEFAULT_DISPLAY_MODE: DisplayMode = "verses";
 
 export function getPreference<T extends string>(
   key: string,
