@@ -577,6 +577,37 @@ Toute opération qui modifie en masse le texte coranique (regex replace, script 
 
 Précédent : la première itération de nettoyage des open-tanwin (2026-04-18) a collapsé 225 frontières de mots légitimes faute de classification. Restauration nécessaire depuis la source, regex restreinte. Cette règle évite la récidive.
 
+### Règle 10 — Caractères Bidi-mirrored à éviter dans le contenu arabe
+
+L'algorithme **Unicode Bidirectional (Bidi)** considère certains caractères comme "mirrored" : leur apparence visuelle s'inverse selon la direction du texte. En contexte RTL (arabe), cela cause des bugs visuels invisibles côté code mais visibles à l'utilisateur arabophone.
+
+**Caractères concernés (liste non-exhaustive)** :
+- Comparaison : `<`, `>`, `≤`, `≥`
+- Crochets et parenthèses non-symétriques (les rondes `()` sont auto-mirrored et OK, mais d'autres types peuvent poser problème)
+- Flèches : `←`, `→`, `↑`, `↓` (avec parfois de la subtilité selon la police)
+
+**Exemple concret rencontré dans le projet (commit 712aeeb)** :
+
+Texte JSON original : `"sizeLong": "طويلة (> 100 آية)"` (intention : "longue, plus de 100 versets")
+Rendu visuel à l'utilisateur arabophone : `< 100 آية` — sens inversé !
+
+**Solution adoptée** : remplacer les symboles mirrored par des **mots arabes naturels** :
+
+| Avant (cassé) | Après (correct) | Sens |
+|---|---|---|
+| `≤ 20 آية` | `حتى 20 آية` | jusqu'à 20 versets |
+| `21-100 آية` | `21 إلى 100 آية` | de 21 à 100 versets |
+| `> 100 آية` | `أكثر من 100 آية` | plus de 100 versets |
+
+**Règle générale pour tout futur contenu arabe** :
+- Pour exprimer une comparaison ou plage : utiliser **les mots arabes naturels** (حتى, إلى, أكثر من, أقل من, مساوي لـ)
+- Si vraiment besoin d'un symbole : tester en RTL avant de commit
+- Pour les flèches de navigation/UI, utiliser des SVG plutôt que des caractères Unicode (contrôle total du rendu)
+
+**Test simple** pour détecter ces bugs : afficher la chaîne dans un contexte RTL réel (`<div dir="rtl">{text}</div>`) et vérifier visuellement que ce qu'on voit correspond à l'intention.
+
+Référence : https://www.w3.org/TR/css-writing-modes-3/#bidi-mirroring
+
 ## Règles de l'assistant IA
 
 ### Approche générale — permissions progressives
