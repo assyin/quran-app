@@ -4,13 +4,29 @@
   "search": {
     "placeholder": "ابحث (مثال: الكهف، 55...)"
   },
+  "view": {
+    "grid": "عرض شبكي",
+    "list": "عرض قائمة"
+  },
   "filters": {
     "type": "النوع",
     "typeAll": "الكل",
     "typeMeccan": "مكية",
     "typeMedinan": "مدنية",
     "juz": "الجزء",
-    "juzAll": "الكل"
+    "juzAll": "الكل",
+    "size": "الطول",
+    "sizeAll": "الكل",
+    "sizeShort": "قصيرة (حتى 20 آية)",
+    "sizeMedium": "متوسطة (21 إلى 100 آية)",
+    "sizeLong": "طويلة (أكثر من 100 آية)"
+  },
+  "sort": {
+    "label": "الترتيب",
+    "number": "الرقم",
+    "alpha": "أبجدي",
+    "longest": "الأطول أولاً",
+    "shortest": "الأقصر أولاً"
   },
   "results": {
     "count": "{count} سورة معروضة",

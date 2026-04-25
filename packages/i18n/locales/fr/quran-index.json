@@ -4,13 +4,29 @@
   "search": {
     "placeholder": "Rechercher (ex: kahf, caverne, 55...)"
   },
+  "view": {
+    "grid": "Vue grille",
+    "list": "Vue liste"
+  },
   "filters": {
     "type": "Type",
     "typeAll": "Toutes",
     "typeMeccan": "Mecquoises",
     "typeMedinan": "Médinoises",
     "juz": "Juz",
-    "juzAll": "Tous"
+    "juzAll": "Tous",
+    "size": "Taille",
+    "sizeAll": "Toutes",
+    "sizeShort": "Courtes (≤ 20 versets)",
+    "sizeMedium": "Moyennes (21-100 versets)",
+    "sizeLong": "Longues (> 100 versets)"
+  },
+  "sort": {
+    "label": "Tri",
+    "number": "Numéro",
+    "alpha": "Alphabétique",
+    "longest": "Plus longue d'abord",
+    "shortest": "Plus courte d'abord"
   },
   "results": {
     "count": "{count} sourates affichées",

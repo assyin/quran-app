@@ -4,13 +4,29 @@
   "search": {
     "placeholder": "Search (e.g. kahf, cave, 55...)"
   },
+  "view": {
+    "grid": "Grid view",
+    "list": "List view"
+  },
   "filters": {
     "type": "Type",
     "typeAll": "All",
     "typeMeccan": "Meccan",
     "typeMedinan": "Medinan",
     "juz": "Juz",
-    "juzAll": "All"
+    "juzAll": "All",
+    "size": "Size",
+    "sizeAll": "All",
+    "sizeShort": "Short (≤ 20 verses)",
+    "sizeMedium": "Medium (21-100 verses)",
+    "sizeLong": "Long (> 100 verses)"
+  },
+  "sort": {
+    "label": "Sort",
+    "number": "Number",
+    "alpha": "Alphabetical",
+    "longest": "Longest first",
+    "shortest": "Shortest first"
   },
   "results": {
     "count": "{count} surahs shown",
