@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import type { Locale } from "@quran/i18n";
 import { TRANSLATORS, type SurahDisplay } from "@quran/data";
 import { toArabicNumerals } from "../lib/arabic-numerals";
+import { renderQuranicTextWithWaqf } from "../lib/quran-text";
 import { getTranslationForLocale } from "../lib/verse-helpers";
 
 type SurahMushafViewProps = {
@@ -38,7 +39,7 @@ export function SurahMushafView({ display, locale }: SurahMushafViewProps) {
             lang="ar"
             className="font-quran text-4xl md:text-5xl text-amber-400 leading-loose"
           >
-            {display.bismillah}
+            {renderQuranicTextWithWaqf(display.bismillah)}
           </p>
           {locale !== "ar" && (
             <p className="mt-4 text-sm text-gray-400 italic">
@@ -56,7 +57,7 @@ export function SurahMushafView({ display, locale }: SurahMushafViewProps) {
         >
           {display.displayVerses.map(({ verse, displayNumber }) => (
             <Fragment key={verse.id}>
-              {verse.textArabic.hafs}
+              {renderQuranicTextWithWaqf(verse.textArabic.hafs ?? "")}
               {" "}
               <span
                 className="ayah-marker mx-1 inline-flex h-7 w-7 items-center justify-center rounded-full bg-gray-800 text-sm font-sans align-middle text-amber-300"

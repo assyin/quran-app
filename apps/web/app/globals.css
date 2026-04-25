@@ -21,3 +21,13 @@ body {
      ligatures active. */
   font-feature-settings: "mark" 1, "mkmk" 1, "ccmp" 1, "calt" 1, "rlig" 1, "liga" 1;
 }
+
+/* Waqf and other Quranic annotation marks. The printed Mushaf of Medina
+   colors these signs to set them apart from the consonantal text — we use
+   red-300 here (instead of red-600) because saturated reds on the dark
+   background of the app would feel harsh; the desaturated tone preserves
+   reading comfort while making waqf signs unambiguously visible. */
+.waqf-mark {
+  color: rgb(252 165 165);
+  font-weight: 500;
+}

@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import type { Verse } from "@quran/core";
 import type { Locale } from "@quran/i18n";
 import { toArabicNumerals } from "../lib/arabic-numerals";
+import { renderQuranicTextWithWaqf } from "../lib/quran-text";
 import { getTranslationForLocale } from "../lib/verse-helpers";
 
 type VerseDisplayProps = {
@@ -38,7 +39,7 @@ export function VerseDisplay({
         lang="ar"
         className="font-quran text-3xl md:text-4xl text-right leading-loose text-gray-100"
       >
-        {arabicText}
+        {renderQuranicTextWithWaqf(arabicText)}
       </p>
 
       {translation && (
