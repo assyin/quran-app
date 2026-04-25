@@ -1,0 +1,26 @@
+{
+  "eyebrow": "À propos",
+  "title": "Pourquoi cette app ?",
+  "sections": {
+    "mission": {
+      "title": "Notre mission",
+      "body": "Cette application est une sadaqah jariyah — une œuvre de bien continue. Elle est gratuite pour toujours, ne contient aucune publicité, ne collecte aucune donnée, et ne sera jamais monétisée."
+    },
+    "authenticity": {
+      "title": "Authenticité du texte",
+      "body": "Le texte coranique provient de Tanzil (édition Uthmani), source de référence mondialement reconnue, conforme au Mushaf de Médine. La police typographique est la KFGQPC V20, utilisée par le Complexe du Roi Fahd pour l'impression du Mushaf officiel."
+    },
+    "translations": {
+      "title": "Traductions",
+      "body": "Les traductions française (Muhammad Hamidullah, 1959) et anglaise (Sahih International, 1997) sont des références établies, accessibles librement."
+    },
+    "openSource": {
+      "title": "Open source",
+      "body": "Le code source est entièrement libre, sous licence AGPL-3.0. N'importe qui peut le forker, l'auditer, l'améliorer.",
+      "link": "Voir le code sur GitHub"
+    }
+  },
+  "quote": {
+    "translation": "Et celui qui sauve une vie est comme s'il avait sauvé l'humanité tout entière."
+  }
+}

@@ -1,9 +1,12 @@
 {
-  "title": "Application Coran",
-  "subtitle": "Plateforme gratuite pour lire le Saint Coran et la Sunna prophétique",
-  "description": "Une sadaqah jariyah au service du livre d'Allah — sans publicité, sans abonnement, sans collecte de données",
-  "cta": {
-    "start": "Commencer la lecture",
-    "discover": "Découvrir les fonctionnalités"
-  }
+  "eyebrow": "Lecture & méditation",
+  "titleArabic": "القرآن الكريم",
+  "subtitle": "Le Saint Coran",
+  "stats": {
+    "surahs": "Sourates",
+    "verses": "Versets",
+    "languages": "Langues"
+  },
+  "cta": "Commencer la lecture",
+  "tagline": "Sadaqah jariyah · Gratuit pour toujours · Sans publicité"
 }

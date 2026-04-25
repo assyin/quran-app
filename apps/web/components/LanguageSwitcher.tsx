@@ -19,7 +19,7 @@ export function LanguageSwitcher() {
     <div
       role="group"
       aria-label={t("label")}
-      className="flex gap-1 p-1 rounded-lg bg-gray-100 dark:bg-gray-800"
+      className="flex gap-0.5 rounded-md bg-white/5 p-1"
     >
       {LOCALES.map((loc) => {
         const isActive = loc === activeLocale;
@@ -31,11 +31,11 @@ export function LanguageSwitcher() {
             aria-label={t(loc)}
             aria-current={isActive ? "true" : undefined}
             className={[
-              "px-3 py-1.5 rounded-md text-sm font-medium transition-colors",
-              "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500",
+              "px-2 py-0.5 rounded text-xs font-medium transition-colors",
+              "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300",
               isActive
-                ? "bg-white dark:bg-gray-700 shadow-sm text-gray-900 dark:text-white"
-                : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white",
+                ? "bg-amber-300/15 text-amber-300"
+                : "text-gray-500 hover:text-gray-200",
             ].join(" ")}
           >
             {loc.toUpperCase()}

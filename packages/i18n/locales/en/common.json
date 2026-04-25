@@ -1,9 +1,12 @@
 {
   "brand": {
-    "name": "Quran App"
+    "name": "Quran",
+    "tagline": "القرآن الكريم"
   },
   "nav": {
     "home": "Home",
+    "surahs": "Surahs",
+    "about": "About",
     "quran": "Quran",
     "hadith": "Hadith",
     "search": "Search",
@@ -18,5 +21,18 @@
   "theme": {
     "dark": "Dark mode",
     "light": "Light mode"
+  },
+  "footer": {
+    "mission": "A sadaqah jariyah. Free forever. No ads, no tracking, no data collection.",
+    "sources": "Sources",
+    "sourceArabic": "Arabic text: Tanzil Uthmani",
+    "sourceFr": "FR: Hamidullah (1959)",
+    "sourceEn": "EN: Sahih International (1997)",
+    "project": "Project",
+    "githubLabel": "Source code — GitHub",
+    "licenseLabel": "AGPL-3.0 License",
+    "fontLabel": "KFGQPC V20 typeface",
+    "doaArabic": "رَبَّنَا تَقَبَّلْ مِنَّا",
+    "doaTranslation": "May this work be accepted"
   }
 }

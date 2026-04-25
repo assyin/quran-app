@@ -1,40 +1,96 @@
 import { useTranslations } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
+import { SURAHS_METADATA } from "@quran/data";
+import { LOCALES, type Locale } from "@quran/i18n";
 import { Link } from "../../i18n/navigation";
+import { toArabicNumerals } from "../../lib/arabic-numerals";
 
-export default function Home() {
+type PageProps = {
+  params: Promise<{ locale: string }>;
+};
+
+const TOTAL_VERSES = SURAHS_METADATA.reduce((acc, s) => acc + s.verseCount, 0);
+const TOTAL_SURAHS = SURAHS_METADATA.length;
+const TOTAL_LANGUAGES = LOCALES.length;
+
+export default async function Home({ params }: PageProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  return <HomeView locale={locale as Locale} />;
+}
+
+function HomeView({ locale }: { locale: Locale }) {
   const t = useTranslations("home");
 
+  const fmt = (n: number) =>
+    locale === "ar" ? toArabicNumerals(n) : String(n);
+
+  // Direction-aware arrow for the CTA: in RTL the "forward" direction is
+  // visually leftward, so we use a left-pointing arrow there.
+  const arrow = locale === "ar" ? "←" : "→";
+
   return (
-    <main className="flex flex-1 items-center justify-center px-6 py-20 bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
-      <div className="w-full max-w-2xl flex flex-col items-center text-center gap-8">
-        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight leading-tight">
-          {t("title")}
-        </h1>
+    <main className="relative flex flex-col items-center justify-center text-center px-4 py-20 min-h-[calc(100vh-3.5rem)]">
+      {/* Soft radial glow at the top to give the hero some depth. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-96 -z-10"
+        style={{
+          background:
+            "radial-gradient(ellipse at top, rgba(245, 158, 11, 0.06) 0%, transparent 60%)",
+        }}
+      />
 
-        <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed">
-          {t("subtitle")}
-        </p>
+      <p className="text-xs uppercase tracking-[0.2em] text-gray-400 mb-2">
+        {t("eyebrow")}
+      </p>
 
-        <p className="text-base sm:text-lg text-gray-500 dark:text-gray-400 max-w-xl leading-relaxed">
-          {t("description")}
-        </p>
+      <h1
+        dir="rtl"
+        lang="ar"
+        className="font-quran text-5xl md:text-6xl text-amber-300 font-normal mb-2 leading-tight"
+      >
+        {t("titleArabic")}
+      </h1>
 
-        <div className="flex flex-col sm:flex-row gap-3 mt-4">
-          <Link
-            href="/quran"
-            className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-gray-900 text-white dark:bg-white dark:text-gray-900 font-medium transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
-          >
-            {t("cta.start")}
-          </Link>
+      {t("subtitle") && (
+        <p className="text-lg text-gray-300 mb-8">{t("subtitle")}</p>
+      )}
 
-          <a
-            href="#"
-            className="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white font-medium transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
-          >
-            {t("cta.discover")}
-          </a>
-        </div>
+      <div className="flex justify-center items-center gap-6 sm:gap-8 mb-10">
+        <Stat value={fmt(TOTAL_SURAHS)} label={t("stats.surahs")} />
+        <Separator />
+        <Stat value={fmt(TOTAL_VERSES)} label={t("stats.verses")} />
+        <Separator />
+        <Stat value={fmt(TOTAL_LANGUAGES)} label={t("stats.languages")} />
       </div>
+
+      <Link
+        href="/quran"
+        className="inline-flex items-center gap-2 px-8 py-3 rounded-full text-sm font-semibold bg-gradient-to-br from-amber-300 to-amber-500 text-amber-900 shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 transition-shadow focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
+      >
+        <span>{t("cta")}</span>
+        <span aria-hidden="true">{arrow}</span>
+      </Link>
+
+      <p className="text-xs text-gray-500 mt-6">{t("tagline")}</p>
     </main>
   );
+}
+
+function Stat({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="flex flex-col items-center">
+      <span className="text-2xl sm:text-3xl text-amber-300 font-medium tabular-nums">
+        {value}
+      </span>
+      <span className="text-[10px] uppercase tracking-[0.15em] text-gray-500 mt-1">
+        {label}
+      </span>
+    </div>
+  );
+}
+
+function Separator() {
+  return <div aria-hidden="true" className="w-px h-8 bg-white/10" />;
 }

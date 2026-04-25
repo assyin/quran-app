@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { isRtlLocale, type Locale } from "@quran/i18n";
 import { routing } from "../../i18n/routing";
+import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { quranFont } from "../fonts/quran-font";
 import "../globals.css";
@@ -60,7 +61,8 @@ export default async function LocaleLayout({
       <body className={`min-h-full flex flex-col ${bodyFontClass}`}>
         <NextIntlClientProvider>
           <Header />
-          {children}
+          <div className="flex-1">{children}</div>
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

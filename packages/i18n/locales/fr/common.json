@@ -1,9 +1,12 @@
 {
   "brand": {
-    "name": "Application Coran"
+    "name": "Quran",
+    "tagline": "القرآن الكريم"
   },
   "nav": {
     "home": "Accueil",
+    "surahs": "Sourates",
+    "about": "À propos",
     "quran": "Coran",
     "hadith": "Hadith",
     "search": "Recherche",
@@ -18,5 +21,18 @@
   "theme": {
     "dark": "Mode sombre",
     "light": "Mode clair"
+  },
+  "footer": {
+    "mission": "Une sadaqah jariyah. Gratuit pour toujours. Sans publicité, sans tracking, sans collecte de données.",
+    "sources": "Sources",
+    "sourceArabic": "Texte arabe : Tanzil Uthmani",
+    "sourceFr": "FR : Hamidullah (1959)",
+    "sourceEn": "EN : Sahih International (1997)",
+    "project": "Projet",
+    "githubLabel": "Code source — GitHub",
+    "licenseLabel": "Licence AGPL-3.0",
+    "fontLabel": "Police KFGQPC V20",
+    "doaArabic": "رَبَّنَا تَقَبَّلْ مِنَّا",
+    "doaTranslation": "Que cette œuvre soit acceptée"
   }
 }

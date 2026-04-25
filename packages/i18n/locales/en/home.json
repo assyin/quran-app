@@ -1,9 +1,12 @@
 {
-  "title": "Quran App",
-  "subtitle": "Free platform to read the Holy Quran and the Prophetic Sunnah",
-  "description": "A sadaqah jariyah in service of Allah's Book — no ads, no subscriptions, no data collection",
-  "cta": {
-    "start": "Start reading",
-    "discover": "Discover features"
-  }
+  "eyebrow": "Reading & meditation",
+  "titleArabic": "القرآن الكريم",
+  "subtitle": "The Holy Quran",
+  "stats": {
+    "surahs": "Surahs",
+    "verses": "Verses",
+    "languages": "Languages"
+  },
+  "cta": "Start reading",
+  "tagline": "Sadaqah jariyah · Free forever · No ads"
 }

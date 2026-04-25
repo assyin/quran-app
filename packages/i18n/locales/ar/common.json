@@ -1,9 +1,12 @@
 {
   "brand": {
-    "name": "تطبيق القرآن"
+    "name": "القرآن",
+    "tagline": "القرآن الكريم"
   },
   "nav": {
     "home": "الرئيسية",
+    "surahs": "السور",
+    "about": "حول",
     "quran": "القرآن الكريم",
     "hadith": "الحديث",
     "search": "بحث",
@@ -18,5 +21,18 @@
   "theme": {
     "dark": "الوضع الداكن",
     "light": "الوضع الفاتح"
+  },
+  "footer": {
+    "mission": "صدقة جارية. مجاني للأبد. بدون إعلانات، بدون تتبع، بدون جمع بيانات.",
+    "sources": "المصادر",
+    "sourceArabic": "النص العربي: تنزيل العثماني",
+    "sourceFr": "FR : حميد الله (1959)",
+    "sourceEn": "EN : Sahih International (1997)",
+    "project": "المشروع",
+    "githubLabel": "الكود المصدري — GitHub",
+    "licenseLabel": "رخصة AGPL-3.0",
+    "fontLabel": "خط KFGQPC V20",
+    "doaArabic": "رَبَّنَا تَقَبَّلْ مِنَّا",
+    "doaTranslation": ""
   }
 }

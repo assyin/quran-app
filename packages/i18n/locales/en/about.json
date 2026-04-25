@@ -1,0 +1,26 @@
+{
+  "eyebrow": "About",
+  "title": "Why this app?",
+  "sections": {
+    "mission": {
+      "title": "Our mission",
+      "body": "This application is a sadaqah jariyah — an ongoing act of charity. It is free forever, contains no advertising, collects no data, and will never be monetized."
+    },
+    "authenticity": {
+      "title": "Text authenticity",
+      "body": "The Quranic text comes from Tanzil (Uthmani edition), a globally recognized reference source aligned with the Mushaf of Medina. The typeface is KFGQPC V20, used by the King Fahd Complex for printing the official Mushaf."
+    },
+    "translations": {
+      "title": "Translations",
+      "body": "The French (Muhammad Hamidullah, 1959) and English (Sahih International, 1997) translations are established references, freely accessible."
+    },
+    "openSource": {
+      "title": "Open source",
+      "body": "The source code is entirely free, under AGPL-3.0 license. Anyone can fork it, audit it, improve it.",
+      "link": "View the code on GitHub"
+    }
+  },
+  "quote": {
+    "translation": "And whoever saves one life — it is as if he had saved all of humanity."
+  }
+}
