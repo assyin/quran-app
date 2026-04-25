@@ -1,14 +1,17 @@
 import { notFound } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
-import type { Surah } from "@quran/core";
+import type { Surah, SurahMetadata } from "@quran/core";
 import {
   getSurahBySlug,
   getSurahDisplay,
+  getSurahNeighbors,
   SURAHS_METADATA,
   type SurahDisplay,
 } from "@quran/data";
 import { type Locale } from "@quran/i18n";
+import { Breadcrumb } from "../../../../components/Breadcrumb";
+import { SurahNavigation } from "../../../../components/SurahNavigation";
 import { VerseDisplay } from "../../../../components/VerseDisplay";
 import { toArabicNumerals } from "../../../../lib/arabic-numerals";
 
@@ -28,25 +31,43 @@ export default async function SurahPage({ params }: PageProps) {
   if (!surah) notFound();
 
   const display = getSurahDisplay(surah);
+  const { previous, next } = getSurahNeighbors(slug);
 
   return (
-    <SurahView surah={surah} display={display} locale={locale as Locale} />
+    <SurahView
+      surah={surah}
+      display={display}
+      previous={previous}
+      next={next}
+      locale={locale as Locale}
+    />
   );
 }
 
 type SurahViewProps = {
   surah: Surah;
   display: SurahDisplay;
+  previous: SurahMetadata | null;
+  next: SurahMetadata | null;
   locale: Locale;
 };
 
 // Presentational sub-component so we can cleanly call useTranslations from a
 // synchronous context (hooks can't be used inside an async server component).
-function SurahView({ surah, display, locale }: SurahViewProps) {
+function SurahView({ surah, display, previous, next, locale }: SurahViewProps) {
   const t = useTranslations("surah");
 
   return (
     <main className="max-w-3xl mx-auto px-4 md:px-6 py-8">
+      <Breadcrumb
+        items={[
+          { label: t("breadcrumbQuran"), href: "/quran" },
+          {
+            label: locale === "ar" ? surah.nameArabic : surah.nameTransliterated,
+          },
+        ]}
+      />
+
       <header className="text-center py-8 border-b border-gray-800">
         <p className="text-sm text-gray-500">#{surah.number}</p>
         <h1
@@ -96,6 +117,8 @@ function SurahView({ surah, display, locale }: SurahViewProps) {
           />
         ))}
       </section>
+
+      <SurahNavigation previous={previous} next={next} locale={locale} />
 
       <footer className="mt-12 pt-6 border-t border-gray-800 text-center text-sm text-gray-500">
         {t("attribution")}

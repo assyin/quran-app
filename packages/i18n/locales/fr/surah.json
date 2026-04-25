@@ -4,5 +4,9 @@
   "medinan": "Médinoise",
   "versesCount": "{count} versets",
   "bismillahTranslation": "Au nom d'Allah, le Tout Miséricordieux, le Très Miséricordieux",
-  "attribution": "Texte : Tanzil.net (Hafs) · Traduction : Muhammad Hamidullah"
+  "attribution": "Texte : Tanzil.net (Hafs) · Traduction : Muhammad Hamidullah",
+  "previousSurah": "Sourate précédente",
+  "nextSurah": "Sourate suivante",
+  "allSurahs": "Toutes les sourates",
+  "breadcrumbQuran": "Coran"
 }

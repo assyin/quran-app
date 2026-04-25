@@ -38,6 +38,24 @@ export const EN_SAHIH_TRANSLATIONS =
   enSahihInternational.translations as unknown as TranslationEntry[];
 export const TRANSLATORS = translators.translators as unknown as Translator[];
 
+// Returns the surrounding surahs (by canonical number) for a given slug, useful
+// for prev/next navigation between surah pages. Either neighbor is null at the
+// boundaries (1 has no previous, 114 has no next) and `current` is null when
+// the slug is unknown.
+export function getSurahNeighbors(slug: string): {
+  previous: SurahMetadata | null;
+  current: SurahMetadata | null;
+  next: SurahMetadata | null;
+} {
+  const current = SURAHS_METADATA.find((s) => s.slug === slug) ?? null;
+  if (!current) return { previous: null, current: null, next: null };
+  const previous =
+    SURAHS_METADATA.find((s) => s.number === current.number - 1) ?? null;
+  const next =
+    SURAHS_METADATA.find((s) => s.number === current.number + 1) ?? null;
+  return { previous, current, next };
+}
+
 // Build a fully-assembled Surah by slug. Only Al-Fatiha is populated in the MVP;
 // returns null when the slug is unknown or no verses are available yet.
 export function getSurahBySlug(slug: string): Surah | null {

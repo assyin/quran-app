@@ -4,5 +4,9 @@
   "medinan": "Medinan",
   "versesCount": "{count} verses",
   "bismillahTranslation": "In the name of Allah, the Entirely Merciful, the Especially Merciful",
-  "attribution": "Text: Tanzil.net (Hafs) · Translation: Sahih International"
+  "attribution": "Text: Tanzil.net (Hafs) · Translation: Sahih International",
+  "previousSurah": "Previous surah",
+  "nextSurah": "Next surah",
+  "allSurahs": "All surahs",
+  "breadcrumbQuran": "Quran"
 }

@@ -4,5 +4,9 @@
   "medinan": "مدنية",
   "versesCount": "{count} آيات",
   "bismillahTranslation": "",
-  "attribution": "النص: Tanzil.net — حفص"
+  "attribution": "النص: Tanzil.net — حفص",
+  "previousSurah": "السورة السابقة",
+  "nextSurah": "السورة التالية",
+  "allSurahs": "جميع السور",
+  "breadcrumbQuran": "القرآن"
 }
