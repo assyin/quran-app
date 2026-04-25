@@ -1,0 +1,19 @@
+{
+  "title": "القرآن الكريم",
+  "subtitle": "{count} سورة · {verses} آية",
+  "search": {
+    "placeholder": "ابحث (مثال: الكهف، 55...)"
+  },
+  "filters": {
+    "type": "النوع",
+    "typeAll": "الكل",
+    "typeMeccan": "مكية",
+    "typeMedinan": "مدنية",
+    "juz": "الجزء",
+    "juzAll": "الكل"
+  },
+  "results": {
+    "count": "{count} سورة معروضة",
+    "empty": "لا توجد سورة مطابقة لبحثك"
+  }
+}

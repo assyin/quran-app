@@ -7,6 +7,7 @@ type MessageBundle = {
   common: Record<string, unknown>;
   home: Record<string, unknown>;
   surah: Record<string, unknown>;
+  quranIndex: Record<string, unknown>;
 };
 
 const loaders: Record<Locale, () => Promise<MessageBundle>> = {
@@ -14,16 +15,22 @@ const loaders: Record<Locale, () => Promise<MessageBundle>> = {
     common: (await import("@quran/i18n/locales/ar/common.json")).default,
     home: (await import("@quran/i18n/locales/ar/home.json")).default,
     surah: (await import("@quran/i18n/locales/ar/surah.json")).default,
+    quranIndex: (await import("@quran/i18n/locales/ar/quran-index.json"))
+      .default,
   }),
   fr: async () => ({
     common: (await import("@quran/i18n/locales/fr/common.json")).default,
     home: (await import("@quran/i18n/locales/fr/home.json")).default,
     surah: (await import("@quran/i18n/locales/fr/surah.json")).default,
+    quranIndex: (await import("@quran/i18n/locales/fr/quran-index.json"))
+      .default,
   }),
   en: async () => ({
     common: (await import("@quran/i18n/locales/en/common.json")).default,
     home: (await import("@quran/i18n/locales/en/home.json")).default,
     surah: (await import("@quran/i18n/locales/en/surah.json")).default,
+    quranIndex: (await import("@quran/i18n/locales/en/quran-index.json"))
+      .default,
   }),
 };
 
@@ -33,7 +40,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
     ? requested
     : routing.defaultLocale;
 
-  const { common, home, surah } = await loaders[locale]();
+  const { common, home, surah, quranIndex } = await loaders[locale]();
 
   return {
     locale,
@@ -41,6 +48,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
       ...common,
       home,
       surah,
+      quranIndex,
     },
   };
 });

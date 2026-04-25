@@ -1,0 +1,19 @@
+{
+  "title": "Le Saint Coran",
+  "subtitle": "{count} sourates · {verses} versets",
+  "search": {
+    "placeholder": "Rechercher (ex: kahf, caverne, 55...)"
+  },
+  "filters": {
+    "type": "Type",
+    "typeAll": "Toutes",
+    "typeMeccan": "Mecquoises",
+    "typeMedinan": "Médinoises",
+    "juz": "Juz",
+    "juzAll": "Tous"
+  },
+  "results": {
+    "count": "{count} sourates affichées",
+    "empty": "Aucune sourate ne correspond à votre recherche"
+  }
+}

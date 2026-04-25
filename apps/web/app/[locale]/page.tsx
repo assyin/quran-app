@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { Link } from "../../i18n/navigation";
 
 export default function Home() {
   const t = useTranslations("home");
@@ -19,12 +20,12 @@ export default function Home() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 mt-4">
-          <a
-            href="#"
+          <Link
+            href="/quran"
             className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-gray-900 text-white dark:bg-white dark:text-gray-900 font-medium transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
           >
             {t("cta.start")}
-          </a>
+          </Link>
 
           <a
             href="#"
