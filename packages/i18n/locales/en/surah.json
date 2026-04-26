@@ -14,5 +14,9 @@
     "verses": "Verse by verse",
     "mushaf": "Mushaf mode",
     "translation": "Translation"
+  },
+  "sajdah": {
+    "label": "Sajdah",
+    "tooltip": "Prostration verse — prostration is recommended when reading"
   }
 }

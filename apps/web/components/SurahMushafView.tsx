@@ -2,9 +2,11 @@ import { Fragment } from "react";
 import { useTranslations } from "next-intl";
 import type { Locale } from "@quran/i18n";
 import { TRANSLATORS, type SurahDisplay } from "@quran/data";
-import { toArabicNumerals } from "../lib/arabic-numerals";
 import { renderQuranicTextWithWaqf } from "../lib/quran-text";
+import { isSajdahVerse } from "../lib/sajdah";
 import { getTranslationForLocale } from "../lib/verse-helpers";
+import { AyahMarker } from "./AyahMarker";
+import { SajdahMarker } from "./SajdahMarker";
 
 type SurahMushafViewProps = {
   display: SurahDisplay;
@@ -59,12 +61,15 @@ export function SurahMushafView({ display, locale }: SurahMushafViewProps) {
             <Fragment key={verse.id}>
               {renderQuranicTextWithWaqf(verse.textArabic.hafs ?? "")}
               {" "}
-              <span
-                className="ayah-marker mx-1 inline-flex h-7 w-7 items-center justify-center rounded-full bg-gray-800 text-sm font-sans align-middle text-amber-300"
-                aria-label={`${t("verse")} ${displayNumber}`}
-              >
-                {toArabicNumerals(displayNumber)}
+              <span className="mx-1 inline-block">
+                <AyahMarker number={displayNumber} locale={locale} />
               </span>
+              {isSajdahVerse(verse.surahNumber, verse.verseNumber) && (
+                <>
+                  {" "}
+                  <SajdahMarker />
+                </>
+              )}
               {" "}
             </Fragment>
           ))}

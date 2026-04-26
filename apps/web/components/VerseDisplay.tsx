@@ -1,9 +1,11 @@
 import { useTranslations } from "next-intl";
 import type { Verse } from "@quran/core";
 import type { Locale } from "@quran/i18n";
-import { toArabicNumerals } from "../lib/arabic-numerals";
 import { renderQuranicTextWithWaqf } from "../lib/quran-text";
+import { isSajdahVerse } from "../lib/sajdah";
 import { getTranslationForLocale } from "../lib/verse-helpers";
+import { AyahMarker } from "./AyahMarker";
+import { SajdahMarker } from "./SajdahMarker";
 
 type VerseDisplayProps = {
   verse: Verse;
@@ -20,18 +22,20 @@ export function VerseDisplay({
   const translation = getTranslationForLocale(verse, locale);
   const arabicText = verse.textArabic.hafs ?? "";
 
+  // Use canonical verse number for sajdah lookup, not displayNumber, since
+  // SAJDAH_VERSES is keyed by canonical {surah:verse} ids.
+  const isSajdah = isSajdahVerse(verse.surahNumber, verse.verseNumber);
+
   return (
     <article className="py-6 border-b border-gray-800">
       <div className="flex items-center justify-between mb-4">
         <span className="text-sm text-gray-500">
           {t("verse")} {displayNumber}
         </span>
-        <span
-          aria-hidden="true"
-          className="inline-flex items-center justify-center min-w-8 h-8 px-2 rounded-full bg-gray-800 text-gray-300 text-sm"
-        >
-          {toArabicNumerals(displayNumber)}
-        </span>
+        <div className="flex items-center gap-2">
+          {isSajdah && <SajdahMarker />}
+          <AyahMarker number={displayNumber} locale={locale} />
+        </div>
       </div>
 
       <p
