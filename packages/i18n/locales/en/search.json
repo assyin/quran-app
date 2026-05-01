@@ -18,5 +18,17 @@
     "page": "Page {n}",
     "current": "Page {n}, current page",
     "ellipsis": "…"
+  },
+  "filters": {
+    "surahLabel": "Surah",
+    "allSurahs": "All surahs",
+    "modeLabel": "Search type",
+    "modePhrase": "Phrase",
+    "modeExact": "Exact word",
+    "modeRoot": "Root",
+    "helpPhrase": "Flexible search with variant tolerance",
+    "helpExact": "Strict exact-word matching",
+    "helpRoot": "Search by Arabic root (heuristic)",
+    "helpRootMvp": "Basic root mode. Full morphological precision in v2."
   }
 }

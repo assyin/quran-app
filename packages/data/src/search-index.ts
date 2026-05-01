@@ -13,6 +13,7 @@ export interface SearchIndexVerse {
   verseNumber: number;
   textArabic: string;
   textArabicSimple: string;
+  textRoot: string;
   textFr: string;
   textFrNormalized: string;
   textEn: string;
@@ -24,6 +25,7 @@ export interface SearchIndexFile {
     generatedAt: string;
     totalVerses: number;
     normalizationVersion: string;
+    rootHeuristicVersion?: string;
     normalizationMirror: string;
   };
   verses: SearchIndexVerse[];

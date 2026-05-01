@@ -2,13 +2,34 @@ import { useTranslations } from "next-intl";
 import type { Locale } from "@quran/i18n";
 import { Link } from "../i18n/navigation";
 import { toArabicNumerals } from "../lib/arabic-numerals";
+import type { SearchMode } from "../lib/search";
 
 type SearchPaginationProps = {
   currentPage: number;
   totalPages: number;
   query: string;
+  mode: SearchMode;
+  surahNumber: number | null;
   locale: Locale;
 };
+
+// Preserve the active query, mode, and surah filter when building
+// pagination links. Defaults (mode=phrase, no surah) are omitted from
+// the URL to keep the canonical form short.
+function buildSearchHref(
+  query: string,
+  mode: SearchMode,
+  surahNumber: number | null,
+  page: number,
+): string {
+  const params = new URLSearchParams();
+  if (query) params.set("q", query);
+  if (mode !== "phrase") params.set("mode", mode);
+  if (surahNumber) params.set("surah", String(surahNumber));
+  if (page > 1) params.set("page", String(page));
+  const qs = params.toString();
+  return qs ? `/search?${qs}` : "/search";
+}
 
 // Build a compact pagination strip: first, ellipsis, current ± 2, ellipsis,
 // last. Drops the ellipses when the gaps are small enough to just list every
@@ -31,6 +52,8 @@ export function SearchPagination({
   currentPage,
   totalPages,
   query,
+  mode,
+  surahNumber,
   locale,
 }: SearchPaginationProps) {
   const t = useTranslations("search.pagination");
@@ -42,7 +65,7 @@ export function SearchPagination({
     locale === "ar" ? toArabicNumerals(n) : String(n);
 
   const hrefForPage = (n: number) =>
-    `/search?q=${encodeURIComponent(query)}&page=${n}`;
+    buildSearchHref(query, mode, surahNumber, n);
 
   const baseLink =
     "min-w-[2.25rem] h-9 inline-flex items-center justify-center rounded-md border text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300";

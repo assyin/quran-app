@@ -18,5 +18,17 @@
     "page": "Page {n}",
     "current": "Page {n}, page courante",
     "ellipsis": "…"
+  },
+  "filters": {
+    "surahLabel": "Sourate",
+    "allSurahs": "Toutes les sourates",
+    "modeLabel": "Type de recherche",
+    "modePhrase": "Phrase",
+    "modeExact": "Mot exact",
+    "modeRoot": "Racine",
+    "helpPhrase": "Recherche souple avec tolérance aux variantes",
+    "helpExact": "Correspondance stricte du mot exact",
+    "helpRoot": "Recherche par racine arabe (heuristique)",
+    "helpRootMvp": "Mode racine basique. Précision morphologique complète prévue en v2."
   }
 }

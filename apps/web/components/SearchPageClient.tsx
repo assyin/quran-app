@@ -10,8 +10,10 @@ import { toArabicNumerals } from "../lib/arabic-numerals";
 import {
   parseReference,
   searchQuran,
+  type SearchMode,
   type SearchResult,
 } from "../lib/search";
+import { SearchFilters } from "./SearchFilters";
 import { SearchPagination } from "./SearchPagination";
 import { SearchResultCard } from "./SearchResultCard";
 
@@ -24,12 +26,46 @@ type SearchPageClientProps = {
   locale: Locale;
 };
 
+// Validate a raw URL "mode" param against the allowed SearchMode values.
+function parseModeParam(raw: string | null): SearchMode {
+  if (raw === "exact" || raw === "root") return raw;
+  return "phrase";
+}
+
+// Validate a raw URL "surah" param: must be 1-114, otherwise null.
+function parseSurahParam(raw: string | null): number | null {
+  if (!raw) return null;
+  const n = Number.parseInt(raw, 10);
+  if (Number.isFinite(n) && n >= 1 && n <= 114) return n;
+  return null;
+}
+
+// Build a /search URL preserving the canonical defaults convention:
+// mode=phrase and no surah filter are omitted from the query string so
+// the URL stays as short as possible for users who don't customize.
+function buildSearchHref(
+  query: string,
+  mode: SearchMode,
+  surahNumber: number | null,
+  page: number,
+): string {
+  const params = new URLSearchParams();
+  if (query) params.set("q", query);
+  if (mode !== "phrase") params.set("mode", mode);
+  if (surahNumber) params.set("surah", String(surahNumber));
+  if (page > 1) params.set("page", String(page));
+  const qs = params.toString();
+  return qs ? `/search?${qs}` : "/search";
+}
+
 export function SearchPageClient({ locale }: SearchPageClientProps) {
   const t = useTranslations("search");
   const router = useRouter();
   const searchParams = useSearchParams();
 
   const queryFromURL = searchParams.get("q") ?? "";
+  const modeFromURL = parseModeParam(searchParams.get("mode"));
+  const surahFromURL = parseSurahParam(searchParams.get("surah"));
   const pageFromURL = Math.max(
     1,
     Number(searchParams.get("page") ?? "1") || 1,
@@ -50,25 +86,33 @@ export function SearchPageClient({ locale }: SearchPageClientProps) {
 
   // Results are state because the search runs async (deferred via setTimeout
   // so the loading state has a chance to paint before the first MiniSearch
-  // index build). `executedQuery` records which query the current results
-  // belong to, so render can derive isLoading without an extra setState.
-  const [executedQuery, setExecutedQuery] = useState("");
+  // index build). `executedKey` records which (q, mode, surah) tuple the
+  // current results belong to, so render can derive isLoading without an
+  // extra setState.
+  const executionKey = `${queryFromURL}|${modeFromURL}|${surahFromURL ?? 0}`;
+  const [executedKey, setExecutedKey] = useState("");
   const [results, setResults] = useState<SearchResult[]>([]);
 
-  const isFresh = executedQuery === queryFromURL;
+  const isFresh = executedKey === executionKey;
   const isLoading = !!queryFromURL && !isRedirecting && !isFresh;
   const displayResults = isFresh ? results : [];
 
-  // Run the search whenever the URL query changes. setState calls live
-  // inside the setTimeout callback so they don't trigger setState-in-effect.
+  // Run the search whenever any of (q, mode, surah) change. setState calls
+  // live inside the setTimeout callback so they don't trigger
+  // setState-in-effect.
   useEffect(() => {
     if (!queryFromURL || isRedirecting) return;
     const handle = setTimeout(() => {
-      setResults(searchQuran(queryFromURL, MAX_RESULTS));
-      setExecutedQuery(queryFromURL);
+      const r = searchQuran(queryFromURL, {
+        mode: modeFromURL,
+        surahNumber: surahFromURL,
+        limit: MAX_RESULTS,
+      });
+      setResults(r);
+      setExecutedKey(executionKey);
     }, 0);
     return () => clearTimeout(handle);
-  }, [queryFromURL, isRedirecting]);
+  }, [queryFromURL, modeFromURL, surahFromURL, isRedirecting, executionKey]);
 
   // Issue the redirect when the URL parses as a verse reference.
   useEffect(() => {
@@ -84,12 +128,25 @@ export function SearchPageClient({ locale }: SearchPageClientProps) {
       router.push("/search");
       return;
     }
-    router.push(`/search?q=${encodeURIComponent(trimmed)}`);
+    router.push(buildSearchHref(trimmed, modeFromURL, surahFromURL, 1));
   };
 
   const handleClear = () => {
     setInputValue("");
     router.push("/search");
+  };
+
+  // Mode and surah changes use router.replace so they don't pollute browser
+  // history — the user can hit Back from a search-results page and return
+  // to where they came from rather than scrolling through filter tweaks.
+  // Page is reset to 1 on every filter change since the new result set
+  // would make the previous page index meaningless.
+  const handleModeChange = (newMode: SearchMode) => {
+    router.replace(buildSearchHref(queryFromURL, newMode, surahFromURL, 1));
+  };
+
+  const handleSurahChange = (newSurah: number | null) => {
+    router.replace(buildSearchHref(queryFromURL, modeFromURL, newSurah, 1));
   };
 
   const totalResults = displayResults.length;
@@ -104,7 +161,15 @@ export function SearchPageClient({ locale }: SearchPageClientProps) {
     locale === "ar" ? toArabicNumerals(n) : String(n);
 
   return (
-    <div className="mt-6">
+    <div className="mt-6 space-y-5">
+      <SearchFilters
+        mode={modeFromURL}
+        onModeChange={handleModeChange}
+        surahNumber={surahFromURL}
+        onSurahChange={handleSurahChange}
+        locale={locale}
+      />
+
       <form onSubmit={handleSubmit} className="relative flex gap-2">
         <div className="relative flex-1">
           <input
@@ -171,7 +236,11 @@ export function SearchPageClient({ locale }: SearchPageClientProps) {
               <ul>
                 {pageResults.map((r) => (
                   <li key={r.id}>
-                    <SearchResultCard result={r} locale={locale} />
+                    <SearchResultCard
+                      result={r}
+                      locale={locale}
+                      mode={modeFromURL}
+                    />
                   </li>
                 ))}
               </ul>
@@ -179,6 +248,8 @@ export function SearchPageClient({ locale }: SearchPageClientProps) {
                 currentPage={safePage}
                 totalPages={totalPages}
                 query={queryFromURL}
+                mode={modeFromURL}
+                surahNumber={surahFromURL}
                 locale={locale}
               />
             </>

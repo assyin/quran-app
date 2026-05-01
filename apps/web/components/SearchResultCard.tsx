@@ -3,18 +3,28 @@ import { getSurahByNumber } from "@quran/data";
 import type { Locale } from "@quran/i18n";
 import { Link } from "../i18n/navigation";
 import { toArabicNumerals } from "../lib/arabic-numerals";
-import { highlightTerms, type SearchResult } from "../lib/search";
+import {
+  highlightTerms,
+  type SearchMode,
+  type SearchResult,
+} from "../lib/search";
 
 type SearchResultCardProps = {
   result: SearchResult;
   locale: Locale;
+  mode: SearchMode;
 };
 
 // One verse-card in the search-results list. Mirrors the visual hierarchy
 // of VerseDisplay in the surah reading view (Arabic prominent in
 // font-quran, translation as secondary text), with a clickable header that
 // jumps to the verse's surah page.
-export function SearchResultCard({ result, locale }: SearchResultCardProps) {
+//
+// `mode` is forwarded to highlightTerms ONLY for the Arabic column. The
+// translation column always uses the default (surface) matching: root
+// extraction is an Arabic-specific heuristic, and we don't want to apply
+// it to French/English text.
+export function SearchResultCard({ result, locale, mode }: SearchResultCardProps) {
   const t = useTranslations("search");
   const surah = getSurahByNumber(result.surahNumber);
 
@@ -69,7 +79,7 @@ export function SearchResultCard({ result, locale }: SearchResultCardProps) {
         lang="ar"
         className="font-quran text-2xl md:text-3xl text-right leading-loose text-gray-100"
       >
-        {highlightTerms(result.textArabic, result.matchedTerms)}
+        {highlightTerms(result.textArabic, result.matchedTerms, { mode })}
       </p>
 
       {translation && (
