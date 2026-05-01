@@ -608,6 +608,28 @@ Rendu visuel à l'utilisateur arabophone : `< 100 آية` — sens inversé !
 
 Référence : https://www.w3.org/TR/css-writing-modes-3/#bidi-mirroring
 
+## Pièges techniques de développement
+
+### Règle 11 — HMR Tailwind/Turbopack peut rater les ajouts de classes CSS
+
+Pendant le développement, ajouter ou refactoriser des classes CSS dans `globals.css` (notamment des sélecteurs avec attributes `[data-X]` ou pseudo-classes) ne déclenche pas toujours la régénération du bundle CSS par Turbopack. Le navigateur sert l'ancienne version du fichier CSS, donnant l'illusion que le code ne fonctionne pas alors qu'il est correct.
+
+**Symptômes typiques** :
+- Une nouvelle règle CSS n'a aucun effet visible
+- Le hard refresh navigateur ne suffit pas
+- `type-check` et `lint` passent (le code est correct)
+
+**Diagnostic** :
+- Curler la page rendue, extraire l'URL du CSS depuis le `<link>`, et grep les nouvelles règles dans le bundle servi
+- Si elles ne sont pas dans le CSS servi → c'est un cache HMR
+
+**Remédiation** (par ordre de simplicité) :
+1. `touch apps/web/app/globals.css` puis attendre 4-5 s pour la recompilation
+2. Append un commentaire au fichier (`echo "/* rebuild */" >> apps/web/app/globals.css`)
+3. Nucléaire : `rm -rf apps/web/.next && pnpm --filter @quran/web dev`
+
+**Conséquence pratique** : après chaque ajout/refacto significatif de CSS, toujours vérifier que les règles sont bien dans le bundle servi avant de penser que le code a un bug. Précédent : trois itérations de doute infondé sur des règles `.mushaf-*` parfaitement écrites mais cachées par Turbopack.
+
 ## Règles de l'assistant IA
 
 ### Approche générale — permissions progressives
