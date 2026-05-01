@@ -9,7 +9,12 @@ const ONE_YEAR_SECONDS = 60 * 60 * 24 * 365;
 // which view to render, and toggled client-side via DisplayModeToggle which
 // then triggers router.refresh() to re-fetch with the new mode.
 export const COOKIE_DISPLAY_MODE = "surah-display-mode";
-export const DISPLAY_MODES = ["verses", "mushaf"] as const;
+// "mushaf-paginated" is a navigation shortcut, not a per-page render mode:
+// the toggle button for it routes to /[locale]/mushaf/{firstPage} instead of
+// re-rendering the surah page. It still appears in the whitelist so cookie
+// reads accept it without falling back, but the surah page treats anything
+// other than "mushaf" as the verses view.
+export const DISPLAY_MODES = ["verses", "mushaf", "mushaf-paginated"] as const;
 export type DisplayMode = (typeof DISPLAY_MODES)[number];
 export const DEFAULT_DISPLAY_MODE: DisplayMode = "verses";
 

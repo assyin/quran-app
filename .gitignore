@@ -40,5 +40,8 @@ desktop.ini
 # Local diagnostic screenshots (not part of the project source)
 screen-fixe/
 
+# Playwright MCP runtime artifacts (snapshots, console logs)
+.playwright-mcp/
+
 # TypeScript incremental
 *.tsbuildinfo

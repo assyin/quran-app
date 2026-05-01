@@ -33,6 +33,15 @@ type TranslationEntry = {
 };
 
 export const SURAHS_METADATA = surahsMetadata as unknown as SurahMetadata[];
+
+const SURAHS_BY_NUMBER = new Map<number, SurahMetadata>(
+  SURAHS_METADATA.map((s) => [s.number, s]),
+);
+
+export function getSurahByNumber(num: number): SurahMetadata | null {
+  return SURAHS_BY_NUMBER.get(num) ?? null;
+}
+
 export const HAFS_VERSES = hafsText.verses as unknown as HafsVerse[];
 export const FR_HAMIDULLAH_TRANSLATIONS =
   frHamidullah.translations as unknown as TranslationEntry[];

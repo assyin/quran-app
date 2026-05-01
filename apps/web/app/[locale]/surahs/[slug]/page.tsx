@@ -120,7 +120,7 @@ function SurahView({
       </header>
 
       <div className="flex justify-center mt-6">
-        <DisplayModeToggle />
+        <DisplayModeToggle surahNumber={surah.number} />
       </div>
 
       {displayMode === "mushaf" ? (

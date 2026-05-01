@@ -5,12 +5,14 @@ import { setRequestLocale } from "next-intl/server";
 import {
   TOTAL_MUSHAF_PAGES,
   getMushafPageMapping,
+  getSurahByNumber,
 } from "@quran/data";
 import type { Locale } from "@quran/i18n";
 import { Breadcrumb } from "../../../../components/Breadcrumb";
 import { MushafPageNavigation } from "../../../../components/MushafPageNavigation";
 import { MushafPaginatedView } from "../../../../components/MushafPaginatedView";
 import { MushafThemeToggle } from "../../../../components/MushafThemeToggle";
+import { Link } from "../../../../i18n/navigation";
 import { toArabicNumerals } from "../../../../lib/arabic-numerals";
 import {
   COOKIE_MUSHAF_THEME,
@@ -93,6 +95,13 @@ function MushafPageView({
   const pageLabel =
     locale === "ar" ? toArabicNumerals(pageNumber) : String(pageNumber);
 
+  // Resolve the surahs sitting on this page so the user can jump back to the
+  // verse-by-verse view of any of them. Most pages have exactly one surah;
+  // transition pages have two.
+  const surahsOnPage = pageMapping.surahsOnPage
+    .map((num) => getSurahByNumber(num))
+    .filter((s): s is NonNullable<typeof s> => s !== null);
+
   return (
     <main className="max-w-4xl mx-auto px-4 md:px-6 py-8">
       <Breadcrumb
@@ -102,6 +111,27 @@ function MushafPageView({
           { label: `${tMushaf("page")} ${pageLabel}` },
         ]}
       />
+
+      {surahsOnPage.length > 0 && (
+        <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-400">
+          <span>{tMushaf("readInVerses")}</span>
+          {surahsOnPage.map((s, i) => (
+            <span key={s.slug} className="flex items-center gap-3">
+              {i > 0 && (
+                <span aria-hidden="true" className="text-gray-600">
+                  ·
+                </span>
+              )}
+              <Link
+                href={`/surahs/${s.slug}`}
+                className="text-amber-300 transition-colors hover:text-amber-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500 rounded-sm"
+              >
+                {locale === "ar" ? s.nameArabic : s.nameTransliterated}
+              </Link>
+            </span>
+          ))}
+        </div>
+      )}
 
       <div className="mt-4 flex justify-center">
         <MushafThemeToggle />
