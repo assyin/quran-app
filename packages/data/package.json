@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./search-index": "./src/search-index.ts"
   },
   "scripts": {
     "lint": "eslint .",
@@ -15,6 +16,7 @@
   },
   "devDependencies": {
     "@quran/config": "workspace:*",
+    "minisearch": "^7.2.0",
     "typescript": "^5"
   }
 }
