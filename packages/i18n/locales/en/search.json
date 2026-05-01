@@ -1,0 +1,22 @@
+{
+  "title": "Search the Quran",
+  "placeholder": "Type a word, a verse (2:255), an expression…",
+  "submit": "Search",
+  "clear": "Clear search",
+  "empty": "Type your search to begin.",
+  "noResults": "No results for \"{query}\".",
+  "resultsCount": "{count} results for \"{query}\"",
+  "loading": "Loading search index…",
+  "headerSearchAriaLabel": "Search the Quran",
+  "referenceRedirect": "Reference detected: surah {surah}, verse {verse}. Redirecting…",
+  "verseLabel": "Verse {verse}",
+  "scoreLabel": "Relevance: {score}",
+  "openSurah": "Open surah {surah}",
+  "pagination": {
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page {n}",
+    "current": "Page {n}, current page",
+    "ellipsis": "…"
+  }
+}

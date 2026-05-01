@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "../i18n/navigation";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { NavLinks } from "./NavLinks";
+import { SearchInput } from "./SearchInput";
 
 export function Header() {
   const t = useTranslations("brand");
@@ -34,7 +35,10 @@ export function Header() {
 
         <NavLinks />
 
-        <LanguageSwitcher />
+        <div className="flex items-center gap-2">
+          <SearchInput />
+          <LanguageSwitcher />
+        </div>
       </div>
     </header>
   );

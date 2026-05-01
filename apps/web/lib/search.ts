@@ -13,7 +13,13 @@
 // future server components and route handlers can call it the same way.
 
 import MiniSearch from "minisearch";
-import { normalizeQuery } from "@quran/core";
+import React from "react";
+import {
+  detectScript,
+  normalizeArabicForSearch,
+  normalizeLatinForSearch,
+  normalizeQuery,
+} from "@quran/core";
 import searchIndex from "@quran/data/search-index";
 import type { SearchIndexVerse } from "@quran/data/search-index";
 
@@ -105,4 +111,51 @@ export function searchQuran(query: string, limit = 50): SearchResult[] {
     score: r.score,
     matchedTerms: r.terms ?? [],
   }));
+}
+
+// Wrap matched tokens in <mark> for highlighting in the original (non-
+// normalized) text. We split on whitespace, then for each non-whitespace
+// token compare its normalized form against the matched terms via equality
+// or prefix — equality covers exact hits, prefix covers MiniSearch's
+// prefix-mode matches as well as adjacent punctuation in the original
+// (e.g. "rahman," normalizes to "rahman," which prefix-matches "rahman").
+//
+// The whole thing is purely render-time; safe to call from server or
+// client components since it returns React nodes, not stateful elements.
+export function highlightTerms(
+  text: string,
+  terms: string[],
+): React.ReactNode[] {
+  if (!text) return [];
+  if (!terms.length) return [text];
+
+  const normalize =
+    detectScript(text) === "arabic"
+      ? normalizeArabicForSearch
+      : normalizeLatinForSearch;
+
+  const lcTerms = terms.map((t) => t.toLowerCase()).filter((t) => t.length > 0);
+  if (!lcTerms.length) return [text];
+
+  const tokens = text.split(/(\s+)/);
+
+  return tokens.map((token, i) => {
+    if (!token || /^\s+$/.test(token)) return token;
+
+    const normalized = normalize(token);
+    if (!normalized) return token;
+
+    const matches = lcTerms.some(
+      (term) => normalized === term || normalized.startsWith(term),
+    );
+
+    if (matches) {
+      return React.createElement(
+        "mark",
+        { key: i, className: "search-mark" },
+        token,
+      );
+    }
+    return token;
+  });
 }

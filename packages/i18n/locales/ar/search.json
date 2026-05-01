@@ -1,0 +1,22 @@
+{
+  "title": "البحث في القرآن",
+  "placeholder": "اكتب كلمة، آية (٢:٢٥٥)، أو عبارة…",
+  "submit": "بحث",
+  "clear": "مسح البحث",
+  "empty": "اكتب بحثك للبدء.",
+  "noResults": "لا نتائج لـ «{query}».",
+  "resultsCount": "{count} نتيجة لـ «{query}»",
+  "loading": "جاري تحميل فهرس البحث…",
+  "headerSearchAriaLabel": "البحث في القرآن",
+  "referenceRedirect": "تم اكتشاف مرجع: سورة {surah}، آية {verse}. جاري التحويل…",
+  "verseLabel": "الآية {verse}",
+  "scoreLabel": "الملاءمة: {score}",
+  "openSurah": "فتح سورة {surah}",
+  "pagination": {
+    "previous": "السابق",
+    "next": "التالي",
+    "page": "الصفحة {n}",
+    "current": "الصفحة {n}، الصفحة الحالية",
+    "ellipsis": "…"
+  }
+}

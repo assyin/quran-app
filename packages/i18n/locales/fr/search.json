@@ -1,0 +1,22 @@
+{
+  "title": "Recherche dans le Coran",
+  "placeholder": "Tapez un mot, un verset (2:255), une expression…",
+  "submit": "Rechercher",
+  "clear": "Effacer la recherche",
+  "empty": "Tapez votre recherche pour commencer.",
+  "noResults": "Aucun résultat pour « {query} ».",
+  "resultsCount": "{count} résultats pour « {query} »",
+  "loading": "Chargement de l'index de recherche…",
+  "headerSearchAriaLabel": "Rechercher dans le Coran",
+  "referenceRedirect": "Référence détectée : sourate {surah}, verset {verse}. Redirection…",
+  "verseLabel": "Verset {verse}",
+  "scoreLabel": "Pertinence : {score}",
+  "openSurah": "Ouvrir la sourate {surah}",
+  "pagination": {
+    "previous": "Précédent",
+    "next": "Suivant",
+    "page": "Page {n}",
+    "current": "Page {n}, page courante",
+    "ellipsis": "…"
+  }
+}
