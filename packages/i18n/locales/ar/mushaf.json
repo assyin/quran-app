@@ -1,0 +1,16 @@
+{
+  "title": "المصحف",
+  "page": "صفحة",
+  "of": "من",
+  "juz": "الجزء",
+  "hizb": "الحزب",
+  "previousPage": "الصفحة السابقة",
+  "nextPage": "الصفحة التالية",
+  "allSurahs": "فهرس السور",
+  "breadcrumbMushaf": "المصحف",
+  "theme": {
+    "label": "السمة",
+    "cream": "ورقي",
+    "dark": "داكن"
+  }
+}

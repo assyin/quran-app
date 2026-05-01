@@ -1,0 +1,16 @@
+{
+  "title": "Le Mushaf",
+  "page": "Page",
+  "of": "sur",
+  "juz": "Juz'",
+  "hizb": "Hizb",
+  "previousPage": "Page précédente",
+  "nextPage": "Page suivante",
+  "allSurahs": "Index des sourates",
+  "breadcrumbMushaf": "Mushaf",
+  "theme": {
+    "label": "Thème",
+    "cream": "Papier",
+    "dark": "Sombre"
+  }
+}

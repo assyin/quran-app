@@ -31,3 +31,166 @@ body {
   color: rgb(252 165 165);
   font-weight: 500;
 }
+
+/* --- Mushaf paginated mode (page-by-page render) ----------------------
+   Two themes are supported via [data-theme]:
+     - "cream" (default): print-faithful look, cream paper + amber border
+     - "dark": consistent with the rest of the app, ideal for night reading
+   Common geometry/layout rules apply to both; only colors and fills swap. */
+
+/* Common geometry */
+.mushaf-paginated-frame {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto;
+  border-radius: 4px;
+  padding: 32px 28px 56px;
+  min-height: 720px;
+  box-shadow: 0 8px 32px rgb(0 0 0 / 0.45);
+}
+
+/* Subtle inner border line evoking the Mushaf's traditional double-frame. */
+.mushaf-paginated-frame::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.mushaf-paginated-header {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 0 8px 12px;
+  border-bottom: 1px solid;
+}
+
+.mushaf-paginated-content {
+  position: relative;
+  padding: 16px 8px 24px;
+  font-family: var(--font-quran), "Amiri Quran", "Scheherazade New", serif;
+  font-size: 26px;
+  line-height: 2;
+  text-align: justify;
+}
+
+@media (min-width: 768px) {
+  .mushaf-paginated-content {
+    font-size: 30px;
+    line-height: 2.2;
+  }
+}
+
+.mushaf-paginated-surah-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 12px -4px 16px;
+  padding: 12px 16px;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+}
+
+.mushaf-paginated-bismillah {
+  text-align: center;
+  margin: 12px 0 16px;
+  font-size: 28px;
+}
+
+@media (min-width: 768px) {
+  .mushaf-paginated-bismillah {
+    font-size: 34px;
+  }
+}
+
+/* Verses are inline so the browser can justify the line. The verse-text
+   span and the ayah marker are siblings inside a single justified flow. */
+.mushaf-paginated-prose {
+  display: block;
+  word-spacing: 0.05em;
+}
+
+.mushaf-paginated-verse-text {
+  display: inline;
+}
+
+.mushaf-paginated-marker {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  margin: 0 0.15em;
+}
+
+.mushaf-paginated-footer {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+}
+
+.mushaf-paginated-page-number {
+  display: inline-block;
+  padding: 4px 14px;
+  border: 1px solid;
+  border-radius: 9999px;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+}
+
+/* --- Theme: cream (default, print-faithful) --- */
+.mushaf-paginated-frame[data-theme="cream"] {
+  background: #faf7f0;
+  color: #1a1a1a;
+  border: 2px solid #c4a057;
+}
+.mushaf-paginated-frame[data-theme="cream"]::before {
+  border-color: rgb(196 160 87 / 0.4);
+}
+.mushaf-paginated-frame[data-theme="cream"] .mushaf-paginated-header {
+  border-bottom-color: rgb(196 160 87 / 0.4);
+  color: rgb(146 100 30);
+}
+.mushaf-paginated-frame[data-theme="cream"] .mushaf-paginated-surah-banner {
+  border-color: rgb(196 160 87 / 0.6);
+  background: rgb(196 160 87 / 0.1);
+  color: rgb(146 100 30);
+}
+.mushaf-paginated-frame[data-theme="cream"] .mushaf-paginated-bismillah {
+  color: rgb(146 100 30);
+}
+.mushaf-paginated-frame[data-theme="cream"] .mushaf-paginated-page-number {
+  background: #faf7f0;
+  border-color: rgb(196 160 87 / 0.6);
+  color: rgb(146 100 30);
+}
+
+/* --- Theme: dark (consistent with app) --- */
+.mushaf-paginated-frame[data-theme="dark"] {
+  background: #1f2937; /* gray-800 — slightly lighter than the page bg */
+  color: #f9fafb; /* gray-50 */
+  border: 2px solid rgb(252 211 77); /* amber-300 */
+}
+.mushaf-paginated-frame[data-theme="dark"]::before {
+  border-color: rgb(252 211 77 / 0.3);
+}
+.mushaf-paginated-frame[data-theme="dark"] .mushaf-paginated-header {
+  border-bottom-color: rgb(252 211 77 / 0.3);
+  color: rgb(252 211 77);
+}
+.mushaf-paginated-frame[data-theme="dark"] .mushaf-paginated-surah-banner {
+  border-color: rgb(252 211 77 / 0.4);
+  background: rgb(252 211 77 / 0.08);
+  color: rgb(252 211 77);
+}
+.mushaf-paginated-frame[data-theme="dark"] .mushaf-paginated-bismillah {
+  color: rgb(252 211 77);
+}
+.mushaf-paginated-frame[data-theme="dark"] .mushaf-paginated-page-number {
+  background: #1f2937;
+  border-color: rgb(252 211 77 / 0.5);
+  color: rgb(252 211 77);
+}
+
+/* trigger rebuild 1777594405 */

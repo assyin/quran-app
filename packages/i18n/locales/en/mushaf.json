@@ -1,0 +1,16 @@
+{
+  "title": "The Mushaf",
+  "page": "Page",
+  "of": "of",
+  "juz": "Juz'",
+  "hizb": "Hizb",
+  "previousPage": "Previous page",
+  "nextPage": "Next page",
+  "allSurahs": "Surah index",
+  "breadcrumbMushaf": "Mushaf",
+  "theme": {
+    "label": "Theme",
+    "cream": "Paper",
+    "dark": "Dark"
+  }
+}

@@ -13,6 +13,14 @@ export const DISPLAY_MODES = ["verses", "mushaf"] as const;
 export type DisplayMode = (typeof DISPLAY_MODES)[number];
 export const DEFAULT_DISPLAY_MODE: DisplayMode = "verses";
 
+// Mushaf paginated mode theme. Default is "cream" — the print-faithful
+// look — so existing visitors keep their current experience. "dark" is
+// an alternative consistent with the rest of the app for night reading.
+export const COOKIE_MUSHAF_THEME = "mushaf-theme";
+export const MUSHAF_THEMES = ["cream", "dark"] as const;
+export type MushafTheme = (typeof MUSHAF_THEMES)[number];
+export const DEFAULT_MUSHAF_THEME: MushafTheme = "cream";
+
 export function getPreference<T extends string>(
   key: string,
   allowed: readonly T[],

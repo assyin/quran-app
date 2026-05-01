@@ -5,6 +5,8 @@ import type {
   VerseTranslation,
   Translator,
 } from "@quran/core";
+
+export * from "./mushaf-pages";
 import surahsMetadata from "../quran/metadata/surahs.json";
 import hafsText from "../quran/text/hafs.json";
 import frHamidullah from "../quran/translations/fr-hamidullah.json";
