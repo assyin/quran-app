@@ -630,6 +630,41 @@ Pendant le développement, ajouter ou refactoriser des classes CSS dans `globals
 
 **Conséquence pratique** : après chaque ajout/refacto significatif de CSS, toujours vérifier que les règles sont bien dans le bundle servi avant de penser que le code a un bug. Précédent : trois itérations de doute infondé sur des règles `.mushaf-*` parfaitement écrites mais cachées par Turbopack.
 
+### Règle 12 — Intégration de datasets académiques externes
+
+Quand on consomme un dataset linguistique tiers (Quranic Arabic Corpus, futurs corpus de hadiths, Quranic Phrase Corpus, etc.), suivre ce pattern :
+
+1. **Source raw jamais committée** : téléchargement dans un dossier cache sous `packages/data/.<source>-cache/` (gitignored). Permet la régénération sans polluer le repo. Ex : `packages/data/.qac-cache/`.
+2. **Sortie dérivée committée** : seul le fichier dérivé (mappings, indexes, normalisations) est versionné, dans `packages/data/quran/search/<source>-<artifact>.json`. Format JSON avec `_meta` complet (source, license, mirror utilisé, attribution requise, generatedAt, stats).
+3. **Idempotence du script d'import** : 2ᵉ exécution = no-op si la source cache existe et a la taille attendue. Sortie déterministe (clés triées) pour des diffs lisibles si la source change.
+4. **Compatibilité de licence** : QAC est GPL, notre projet AGPL-3.0 (compatible — AGPL est dérivé GPL). Pour toute nouvelle source : vérifier compat avant intégration. Documenter dans le `_meta.license` ET dans le disclaimer utilisateur visible.
+5. **Attribution dans l'UI** : la mention de la source académique doit apparaître au moins dans le help text du mode concerné (ex: `filters.helpRootMvp` cite "Quranic Arabic Corpus (Univ. of Leeds, Kais Dukes 2011)").
+
+Précédent : Phase C QAC integration, 2026-05-03. Pattern formalisé pour réutilisation lors de l'ajout de hadith corpora ou Quranic Phrase Corpus en v2.
+
+### Règle 13 — Tables d'overrides pour datasets académiques
+
+Quand le dataset académique a un comportement légitime mais qui ne match pas la convention populaire (ex: QAC traite "محمد" comme nom propre opaque sans racine, alors que المعجم المفهرس le rattache à H-M-D), on peut ajouter une **table d'overrides ciblée** sous deux conditions strictes :
+
+1. **Documentation per-entrée obligatoire** : chaque override JSON doit porter `{ form_buckwalter, form_arabic, root_buckwalter, root_arabic, lemma_meaning, occurrences, justification }`. La justification cite la source classique (Lisan al-Arab, Mufradat al-Raghib, etc.).
+2. **Override ne overwrite jamais** : applique l'override uniquement si le dataset retourne null/absent pour cette entrée. Si le dataset a déjà un tag, c'est lui qui gagne (cohérence académique préservée).
+
+Pour Phase C QAC : 6 overrides ciblant Muhammad, Ahmad, Yahya, Makkah, Bakkah, Quraysh — tous noms propres arabes étymologiquement transparents. Audit préalable obligatoire (Phase C-0.6) pour valider que la forme Buckwalter exacte n'est pas déjà couverte. La table reste petite (audit de 15 candidats, 6 retenus, 9 redondants éliminés).
+
+### Règle 14 — Expansion clitic-aware pour la recherche en arabe
+
+Le Mushaf orthographique colle systématiquement les clitics (و, ف, ب, ل, ك, ال, et le vocatif يَٰ → ى après normalisation) aux mots qu'ils précèdent. Une recherche surface-only manque donc les versets où le terme cherché apparaît sous forme clitique-attachée.
+
+Solution adoptée Phase C-X (2026-05-03) :
+
+1. **Champ parallèle** : `textArabicExpanded` à côté de `textArabicSimple`. Le premier contient les variantes prefix-strippées validées contre le corpus, le second reste strict.
+2. **Mode `phrase` cible textArabicExpanded** : recherche tolérante aux clitics. User tape "موسى" → trouve aussi يَٰمُوسَىٰ (`ىموسى` après normalize), وَمُوسَىٰ, بِمُوسَىٰ, لِمُوسَىٰ.
+3. **Mode `exact` reste sur textArabicSimple** : strict, le user qui veut le token exact bare l'obtient.
+4. **Validation contre BARE_TOKENS** : un préfixe n'est strippé que si le résultat existe ailleurs dans le corpus comme bare token. Empêche les faux positifs (ex: `الموسع` ne devient pas `موسع` car `موسع` n'apparaît jamais bare). Effort O(N) (1 pass de collection + 1 pass d'expansion).
+5. **Liste des préfixes longest-first** : `وال`, `بال`, `فال`, `كال`, `لل`, `ست`, `ال`, `ى` (vocatif), `و`, `ف`, `ب`, `ل`, `ك`, `س`. Single-pass sans cumul (les compounds sont déjà dans la liste).
+
+Stats Phase C-X : index 6.60 → 7.58 MB raw / 1.74 → 1.84 MB gz (+15% raw, +6% gz). Gains : Moses 101→131 verses, Ibrahim 0→51, Allah 1566→1736.
+
 ## Règles de l'assistant IA
 
 ### Approche générale — permissions progressives

@@ -57,6 +57,17 @@ pnpm --filter @quran/web build     # build de production
 
 Ce projet est distribué sous licence **GNU Affero General Public License v3.0 (AGPL-3.0)**. Voir le fichier [LICENSE](./LICENSE) pour le texte complet.
 
+## Remerciements et sources
+
+L'application n'aurait pas été possible sans le travail patient de plusieurs équipes académiques et religieuses qui mettent leurs ressources à disposition de la communauté :
+
+- **Quranic Arabic Corpus v0.4** (2011) par Kais Dukes, Université de Leeds — étiquetage morphologique académique de chaque mot du Coran (racine, lemme, fonction grammaticale). Utilisé sous licence GNU GPL ; alimente le mode de recherche par racine. http://corpus.quran.com
+- **Tanzil** — texte Uthmani vérifié du Coran, sous licence Creative Commons BY-ND 3.0. http://tanzil.net
+- **Muhammad Hamidullah** (1959) — traduction française du Coran
+- **Sahih International** (1997) — traduction anglaise du Coran
+- **King Fahd Glorious Quran Printing Complex** — typographie KFGQPC Uthmanic Hafs V20
+- **المعجم المفهرس لألفاظ القرآن الكريم** de Muhammad Fu'ad Abdul-Baqi (1945) — référence académique qui inspire l'UX de la recherche par racine et par lemme
+
 ## Feuille de route
 
 - [x] Fondations techniques (monorepo pnpm + Turborepo, Next.js 16, TypeScript strict)

@@ -28,7 +28,7 @@
     "modeRoot": "Racine",
     "helpPhrase": "Recherche souple avec tolérance aux variantes",
     "helpExact": "Correspondance stricte du mot exact",
-    "helpRoot": "Recherche par racine arabe (heuristique)",
-    "helpRootMvp": "Mode racine basique. Précision morphologique complète prévue en v2."
+    "helpRoot": "Recherche par racine arabe académique",
+    "helpRootMvp": "Racines issues du Quranic Arabic Corpus (Université de Leeds, Kais Dukes 2011), augmentées de 6 noms propres arabes."
   }
 }

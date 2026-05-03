@@ -28,7 +28,7 @@
     "modeRoot": "Root",
     "helpPhrase": "Flexible search with variant tolerance",
     "helpExact": "Strict exact-word matching",
-    "helpRoot": "Search by Arabic root (heuristic)",
-    "helpRootMvp": "Basic root mode. Full morphological precision in v2."
+    "helpRoot": "Search by academic Arabic root",
+    "helpRootMvp": "Roots from the Quranic Arabic Corpus (Univ. of Leeds, Kais Dukes 2011), augmented with 6 Arabic proper nouns."
   }
 }

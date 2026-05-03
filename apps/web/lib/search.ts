@@ -26,18 +26,34 @@ import {
 } from "@quran/core";
 import searchIndex from "@quran/data/search-index";
 import type { SearchIndexVerse } from "@quran/data/search-index";
+import { getQacRoot } from "@quran/data/qac-surface-roots";
+
+// Resolve an already-normalized Arabic surface form to its root, with QAC
+// (academic morphology) as the primary source and the heuristic stripper
+// as a fallback for words absent from the QAC vocabulary.
+function resolveArabicRoot(normalizedToken: string): string {
+  return (
+    getQacRoot(normalizedToken) ??
+    extractRoot(normalizedToken) ??
+    normalizedToken
+  );
+}
 
 let cachedSearch: MiniSearch<SearchIndexVerse> | null = null;
 
 function getSearchIndex(): MiniSearch<SearchIndexVerse> {
   if (cachedSearch) return cachedSearch;
 
-  // textRoot is indexed alongside textArabicSimple/Fr/En so per-call
-  // searchOptions.fields can scope queries to a single field for "root"
-  // mode without rebuilding the index.
+  // All four searchable Arabic/translation fields are indexed up front so
+  // per-call searchOptions.fields can pick the right one per mode:
+  //   - phrase  → textArabicExpanded (clitic-tolerant)
+  //   - exact   → textArabicSimple (strict, no clitic match)
+  //   - root    → textRoot (academic root via QAC)
+  // Translation fields stay indexed for cross-language phrase search.
   const ms = new MiniSearch<SearchIndexVerse>({
     fields: [
       "textArabicSimple",
+      "textArabicExpanded",
       "textRoot",
       "textFrNormalized",
       "textEnNormalized",
@@ -136,11 +152,14 @@ function buildSearchOptions(
     // we fall back to passing the normalized query through; the textRoot
     // field is Arabic-only and won't match, so result will be empty.
     // That's the documented behavior.
+    //
+    // For Arabic queries, resolveArabicRoot consults the QAC vocabulary
+    // map first (academic precision), then falls back to the heuristic
+    // stripper for words outside the corpus. This is what makes "محمد"
+    // resolve to "حمد" (via the QAC override) and surface the full H-M-D
+    // family in results.
     const rootQuery = isArabic
-      ? normalized
-          .split(/\s+/)
-          .map((tok) => extractRoot(tok) ?? tok)
-          .join(" ")
+      ? normalized.split(/\s+/).map(resolveArabicRoot).join(" ")
       : normalized;
     return {
       queryToUse: rootQuery,
@@ -153,13 +172,16 @@ function buildSearchOptions(
     };
   }
 
-  // mode === "phrase"
+  // mode === "phrase" — search the clitic-expanded Arabic field so a query
+  // like "موسى" still finds verses containing وَمُوسَىٰ / يَٰمُوسَىٰ /
+  // بِمُوسَىٰ. The strict, non-expanded textArabicSimple stays available
+  // for the "exact" branch above.
   const isShortQuery = normalized.length <= 4;
   return {
     queryToUse: normalized,
     options: {
-      fields: ["textArabicSimple", "textFrNormalized", "textEnNormalized"],
-      boost: { textArabicSimple: 3 },
+      fields: ["textArabicExpanded", "textFrNormalized", "textEnNormalized"],
+      boost: { textArabicExpanded: 3 },
       combineWith: isShortQuery ? "AND" : "OR",
       prefix: true,
       fuzzy: isShortQuery ? false : 0.15,
@@ -216,16 +238,13 @@ export function searchQuran(
 // prefix-mode matches as well as adjacent punctuation in the original
 // (e.g. "rahman," normalizes to "rahman," which prefix-matches "rahman").
 //
-// In `mode: "root"` the matching is upgraded to use the same heuristic
-// root extraction the build script applied to populate textRoot, so a
-// query like "غفور" (whose root resolves to itself) now also highlights
-// surface forms whose extractRoot collapses to the same root — most
-// notably "الغفور" (strip ال → غفور). Without this, root-mode results
-// would surface verses that no longer visibly contain the search term,
-// which is exactly the inconsistency the user reported. Root matching is
-// Arabic-only (the heuristic is Arabic-specific) and skipped silently
-// for Latin text, so calling highlightTerms with `mode: "root"` on a
-// translation column is safe — it just falls back to the normal logic.
+// In `mode: "root"` the per-token comparison is upgraded so that a
+// surface form like الغفور (al-Ghafur) and a query like غفور both
+// resolve to the same root before being compared. The resolution uses
+// resolveArabicRoot — QAC vocabulary first, heuristic stripper second —
+// so highlights stay aligned with what the index actually returned.
+// Root matching is Arabic-only and skipped for Latin text; calling
+// highlightTerms with `mode: "root"` on a translation column is safe.
 //
 // The whole thing is purely render-time; safe to call from server or
 // client components since it returns React nodes, not stateful elements.
@@ -255,9 +274,7 @@ export function highlightTerms(
     const normalized = normalize(token);
     if (!normalized) return token;
 
-    const comparable = matchByRoot
-      ? (extractRoot(normalized) ?? normalized)
-      : normalized;
+    const comparable = matchByRoot ? resolveArabicRoot(normalized) : normalized;
 
     const matches = lcTerms.some((term) =>
       matchByRoot

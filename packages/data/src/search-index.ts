@@ -13,6 +13,10 @@ export interface SearchIndexVerse {
   verseNumber: number;
   textArabic: string;
   textArabicSimple: string;
+  // Same as textArabicSimple but augmented with prefix-stripped variants
+  // for clitic-prefixed words (وَمُوسَىٰ → also moves through "موسى"). Phrase
+  // mode searches this; exact mode keeps using the strict bare form.
+  textArabicExpanded: string;
   textRoot: string;
   textFr: string;
   textFrNormalized: string;

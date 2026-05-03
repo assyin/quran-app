@@ -63,22 +63,26 @@ export function normalizeQuery(text: string): string {
     : normalizeLatinForSearch(text);
 }
 
-// Heuristic root extraction. Operates on POST-NORMALIZATION text — i.e.
-// already stripped of harakat, with ة collapsed to ه, alef variants unified,
-// etc. Strips one common Arabic prefix and one common suffix (longest first
-// in each list) and falls back to the original word when stripping would
-// leave fewer than 3 characters.
+// Heuristic root extraction. Now a FALLBACK path: the primary root source
+// is the Quranic Arabic Corpus (QAC) v0.4 packaged in
+// packages/data/quran/search/qac-roots.json (Leeds Univ., GNU GPL). Surface
+// forms not present in the corpus map fall through to this stripper, which
+// handles common Arabic prefixes/suffixes well enough for ~60-70% of
+// Quranic vocabulary by character pattern.
 //
-// Precision is intentionally rough — about 60-70% of Quranic words land on
-// their true trilateral root. This is enough to power a "search by root"
-// mode where the user types رحم and finds رحمة, الرحمن, ارحم, etc. For
-// academic-grade morphology the long-term plan is to integrate the Quranic
-// Arabic Corpus dataset (corpus.quran.com); this heuristic is the MVP.
+// Operates on POST-NORMALIZATION text — i.e. already stripped of harakat,
+// with ة collapsed to ه, alef variants unified, etc. Strips one common
+// Arabic prefix and one common suffix (longest first in each list).
 //
 // Note on the suffix list: the user-facing spec lists ة (ta marbuta), but
 // after normalizeArabicForSearch ة has already been collapsed to ه, so the
 // equivalent post-normalization suffix is ه. All other suffixes in the spec
 // are unchanged by normalization and pass through verbatim.
+//
+// Callers who want academic precision should use getQacRoot() from
+// @quran/data/qac-surface-roots first and only call extractRoot when the
+// QAC lookup returns null. apps/web/lib/search.ts wires this exact pattern
+// in resolveArabicRoot().
 
 const ROOT_PREFIXES = ["ست", "ال", "و", "ف", "ب", "ك", "ل", "س"];
 const ROOT_SUFFIXES = [
